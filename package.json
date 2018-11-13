@@ -1,0 +1,31 @@
+{
+  "name": "simple-kafka-promise",
+  "version": "0.0.1",
+  "description": "A simple kafka with promise method",
+  "main": "index.js",
+  "scripts": {
+    "linter": "node_modules/.bin/standard --fix",
+    "test": "npm run linter && echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sguilly/simple-kafka-promise.git"
+  },
+  "author": "Stéphane GUILLY - S3PWEB",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sguilly/simple-kafka-promise/issues"
+  },
+  "homepage": "https://github.com/sguilly/simple-kafka-promise#readme",
+  "dependencies": {
+    "config": "2.0.1",
+    "hirestime": "3.2.1",
+    "node-rdkafka": "2.4.2",
+    "s3pweb-logger": "0.0.5",
+    "standard": "12.0.1",
+    "uuid": "3.3.2"
+  },
+  "devDependencies": {
+    "prom-client": "11.2.0"
+  }
+}

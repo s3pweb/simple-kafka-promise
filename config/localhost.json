@@ -1,0 +1,41 @@
+{
+    "name": "s3pweb-kafka-client",
+    "kafka": {
+      "consumer": {
+        "config": {
+          "metadata.broker.list": "localhost:9094",
+          "group.id": "test.group"
+        }
+      },
+      "producer": {
+        "config": {
+          "metadata.broker.list": "localhost:9094"
+        },
+        "topicsPrefix": "s3pweb."
+      }
+    },
+
+    "logger": {
+      "source": false,
+      "console":{
+        "enable": true,
+        "level": "info"
+      },
+      "file": {
+        "enable": true,
+        "level": "info",    
+        "dir": "./logs"    
+      },
+      "server": {      
+        "enable": true,  
+        "level": "info",
+        "url": "0.0.0.0",
+        "port": "9998",
+        "type": "elk"
+      },
+      "ringBuffer": {
+        "enable": true,
+        "size": 50
+      }
+    }    
+  }
