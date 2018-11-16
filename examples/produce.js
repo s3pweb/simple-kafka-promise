@@ -27,7 +27,7 @@ var t = async () => {
 
     for (let index = 0; index < 10; index++) {
       try {
-        var p1 = producer.sendMessagesSync(
+        var p1 = producer.sendMessagesAndWaitReport(
           topicName,
           [
             { message: 1.1 },
@@ -39,10 +39,11 @@ var t = async () => {
             { message: 1.3 },
             { message: 1.4 }
           ],
+          0,
           'key1'
         )
 
-        var p2 = producer.sendMessagesSync(
+        var p2 = producer.sendMessagesAndWaitReport(
           topicName,
           [
             { message: 2.1 },
@@ -61,9 +62,7 @@ var t = async () => {
           'key2'
         )
 
-        var report = await Promise.all([p1, p2])
-
-        console.log(`Report = ${JSON.stringify(report)}`)
+        await Promise.all([p1, p2])
       } catch (error) {
         console.log(`Loop ${index} -> error`, error)
 
