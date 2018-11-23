@@ -64,38 +64,38 @@ Configurations are stored in configuration files within your application, and ca
 To produce some messages
 
 ```js
-const clientPrometheus = require('prom-client')
+const clientPrometheus = require("prom-client");
 
 // const faker = require('faker')
 
-function later (delay) {
-  return new Promise(function (resolve) {
-    setTimeout(resolve, delay)
-  })
+function later(delay) {
+  return new Promise(function(resolve) {
+    setTimeout(resolve, delay);
+  });
 }
 
 var t = async () => {
-  var log = require('s3pweb-logger').logger
+  var log = require("s3pweb-logger").logger;
 
   try {
-    var producer = require('..').producer({ log: log, prom: clientPrometheus })
+    var producer = require("..").producer({ log: log, prom: clientPrometheus });
 
-    await producer.connect()
+    await producer.connect();
 
-    console.log('connected')
+    console.log("connected");
 
-    console.log('wait a little')
+    console.log("wait a little");
 
-    await later(200)
+    await later(200);
 
     // var topicName = faker.random.alphaNumeric(10)
-    var topicName = 'test223'
+    var topicName = "test223";
 
     for (let index = 0; index < 10; index++) {
       try {
-        var p1 = producer.sendMessagesAndWaitReport(
-          topicName,
-          [
+        var p1 = producer.sendMessagesAndWaitReport({
+          topic: topicName,
+          messages: [
             { message: 1.1 },
             { message: 1.2 },
             { message: 1.3 },
@@ -105,13 +105,13 @@ var t = async () => {
             { message: 1.3 },
             { message: 1.4 }
           ],
-          0,
-          'key1'
-        )
+          partition: 0,
+          key: "key1"
+        });
 
-        var p2 = producer.sendMessagesAndWaitReport(
-          topicName,
-          [
+        var p2 = producer.sendMessagesAndWaitReport({
+          topic: topicName,
+          messages: [
             { message: 2.1 },
             { message: 2.2 },
             { message: 2.3 },
@@ -124,89 +124,83 @@ var t = async () => {
             { message: 2.2 },
             { message: 2.3 },
             { message: 2.4 }
-          ],
-          0,
-          'key2'
-        )
+          ]
+        });
 
-        await Promise.all([p1, p2])
-        
+        await Promise.all([p1, p2]);
       } catch (error) {
-        console.log(`Loop ${index} -> error`, error)
+        console.log(`Loop ${index} -> error`, error);
 
-        await later(5000)
+        await later(5000);
       }
 
-      await later(750)
+      await later(750);
     }
 
-    await producer.disconnect()
+    await producer.disconnect();
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
-t()
-
+t();
 ```
 
 To consume some messages
 
 ```js
-const clientPrometheus = require('prom-client')
+const clientPrometheus = require("prom-client");
 
-function later (delay) {
-  return new Promise(function (resolve) {
-    setTimeout(resolve, delay)
-  })
+function later(delay) {
+  return new Promise(function(resolve) {
+    setTimeout(resolve, delay);
+  });
 }
 
 var t = async () => {
-  var log = require('s3pweb-logger').logger
+  var log = require("s3pweb-logger").logger;
 
-  var consumer = require('..').consumer({ log: log, prom: clientPrometheus })
+  var consumer = require("..").consumer({ log: log, prom: clientPrometheus });
 
-  await consumer.connect(['s3pweb.test223'])
+  await consumer.connect(["s3pweb.test223"]);
 
-  console.log('wait a little')
+  console.log("wait a little");
 
-  await later(200)
+  await later(200);
 
-  var previousPartition = 0
-  var cpt = 0
+  var previousPartition = 0;
+  var cpt = 0;
 
   while (cpt < 200) {
-    var messages = await consumer.listen(10)
+    var messages = await consumer.listen({number:10, autoCommit: true);
 
     for (let message of messages) {
-      cpt++
+      cpt++;
 
-      var txt = `${message.partition} - ${message.offset} * `
+      var txt = `${message.partition} - ${message.offset} * `;
 
       if (previousPartition !== message.partition) {
-        previousPartition = message.partition
-        console.log(txt)
+        previousPartition = message.partition;
+        console.log(txt);
       } else {
-        process.stdout.write(txt)
+        process.stdout.write(txt);
       }
     }
 
-    console.log(cpt)
+    console.log(cpt);
 
-    console.log('----------------------------')
+    console.log("----------------------------");
   }
 
-  console.log('RECEIVE ALL EVENTS')
+  console.log("RECEIVE ALL EVENTS");
 
-  await later(200)
+  await later(200);
 
-  await consumer.disconnect()
-}
+  await consumer.disconnect();
+};
 
-t()
-
+t();
 ```
-
 
 # Bonus
 
@@ -214,7 +208,7 @@ t()
 
 ```bash
 
-chmod +x example/startElk.sh 
+chmod +x example/startElk.sh
 
 ./example/startElk.sh
 
@@ -222,7 +216,7 @@ chmod +x example/startElk.sh
 
 Open your favorite browser : http://localhost:5601
 
-Create an index with just * (replace logstash-* by *)
+Create an index with just _ (replace logstash-_ by \*)
 
 2. Create a kafka broker on docker
 
