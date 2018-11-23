@@ -21,7 +21,7 @@ var t = async () => {
   var cpt = 0
 
   while (cpt < 200) {
-    var messages = await consumer.listen(10)
+    var messages = await consumer.listen({ number: 10, autoCommit: true })
 
     for (let message of messages) {
       cpt++

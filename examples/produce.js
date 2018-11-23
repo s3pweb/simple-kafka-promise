@@ -28,38 +28,39 @@ var t = async () => {
     for (let index = 0; index < 10; index++) {
       try {
         var p1 = producer.sendMessagesAndWaitReport(
-          topicName,
-          [
-            { message: 1.1 },
-            { message: 1.2 },
-            { message: 1.3 },
-            { message: 1.4 },
-            { message: 1.1 },
-            { message: 1.2 },
-            { message: 1.3 },
-            { message: 1.4 }
-          ],
-          0,
-          'key1'
+          { topic: topicName,
+            messages: [
+              { message: 1.1 },
+              { message: 1.2 },
+              { message: 1.3 },
+              { message: 1.4 },
+              { message: 1.1 },
+              { message: 1.2 },
+              { message: 1.3 },
+              { message: 1.4 }
+            ],
+            partition: 0,
+            key: 'key1' }
         )
 
         var p2 = producer.sendMessagesAndWaitReport(
-          topicName,
-          [
-            { message: 2.1 },
-            { message: 2.2 },
-            { message: 2.3 },
-            { message: 2.4 },
-            { message: 2.1 },
-            { message: 2.2 },
-            { message: 2.3 },
-            { message: 2.4 },
-            { message: 2.1 },
-            { message: 2.2 },
-            { message: 2.3 },
-            { message: 2.4 }
-          ],
-          'key2'
+          { topic: topicName,
+            messages: [
+              { message: 2.1 },
+              { message: 2.2 },
+              { message: 2.3 },
+              { message: 2.4 },
+              { message: 2.1 },
+              { message: 2.2 },
+              { message: 2.3 },
+              { message: 2.4 },
+              { message: 2.1 },
+              { message: 2.2 },
+              { message: 2.3 },
+              { message: 2.4 }
+            ],
+            key: 'key2'
+          }
         )
 
         await Promise.all([p1, p2])
