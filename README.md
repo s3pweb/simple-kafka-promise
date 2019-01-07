@@ -59,6 +59,21 @@ Configurations are stored in configuration files within your application, and ca
 }
 ```
 
+# Create instance
+
+```js
+var producer = require("..").producer({ log: log, prom: clientPrometheus });
+var consumer = require("..").consumer({ log: log, prom: clientPrometheus });
+```
+
+or you could overwrite the config section by passing it as params 
+
+```js
+var producer = require("..").producer({ log: log, prom: clientPrometheus, config: { "metadata.broker.list": "localhost:9094" });
+var consumer = require("..").consumer({ log: log, prom: clientPrometheus, config: { "metadata.broker.list": "localhost:9094","group.id": "test.group"} });
+```
+
+
 # Example :
 
 To produce some messages
