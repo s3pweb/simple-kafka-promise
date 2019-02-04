@@ -3,13 +3,13 @@
     "kafka": {
       "consumer": {
         "config": {
-          "metadata.broker.list": "localhost:9094",
+          "metadata.broker.list": "0.0.0.0:9094",
           "group.id": "test.group"
         }
       },
       "producer": {
         "config": {
-          "metadata.broker.list": "localhost:9094"
+          "metadata.broker.list": "0.0.0.0:9094"
         },
         "topicsPrefix": "s3pweb."
       }
