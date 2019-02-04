@@ -21,7 +21,7 @@
     "config": "2.0.1",
     "hirestime": "3.2.1",
     "node-rdkafka": "2.5.1",
-    "s3pweb-logger": "0.0.6",
+    "s3pweb-logger": "0.0.7",
     "uuid": "3.3.2"
   },
   "devDependencies": {
