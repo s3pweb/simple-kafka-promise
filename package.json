@@ -1,6 +1,6 @@
 {
   "name": "simple-kafka-promise",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A simple kafka with promise method",
   "main": "index.js",
   "scripts": {
