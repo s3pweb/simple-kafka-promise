@@ -1,6 +1,6 @@
 {
   "name": "simple-kafka-promise",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "A simple kafka with promise method",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "config": "2.0.1",
     "hirestime": "3.2.1",
     "node-rdkafka": "2.5.1",
-    "s3pweb-logger": "0.0.6",
+    "s3pweb-logger": "0.0.7",
     "uuid": "3.3.2"
   },
   "devDependencies": {
