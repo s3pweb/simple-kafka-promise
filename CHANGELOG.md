@@ -14,4 +14,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Security
 - (dependencies) updated config, node-rdkafka, prom-client and logger
 
+## [0.3.1] - 2019-04-24
+### Fixed
+- (HLProducer) added missing export
+
+## [0.3.0] - 2019-04-24
+### Added
+- (producer) added High Level Producer
+### Security
+- (dependencies) updated node-rdkafka and logger
+
 [Unreleased]: https://github.com/sguilly/simple-kafka-promise/commits
+[0.3.1]: https://github.com/sguilly/simple-kafka-promise/commits/v0.3.1
+[0.3.0]: https://github.com/sguilly/simple-kafka-promise/commits/v0.3.0
