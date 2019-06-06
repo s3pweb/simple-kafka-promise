@@ -18,13 +18,13 @@
   },
   "homepage": "https://github.com/sguilly/simple-kafka-promise#readme",
   "dependencies": {
-    "config": "3.0.1",
+    "config": "3.1.0",
     "hirestime": "3.2.1",
-    "node-rdkafka": "2.6.1",
+    "node-rdkafka": "2.7.0",
     "uuid": "3.3.2"
   },
   "devDependencies": {
-    "prom-client": "11.2.1",
-    "s3pweb-logger": "0.1.1"
+    "prom-client": "11.5.0",
+    "s3pweb-logger": "0.1.2"
   }
 }
