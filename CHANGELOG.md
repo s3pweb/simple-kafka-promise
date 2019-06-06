@@ -9,8 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 ### Deprecated
 ### Fixed
-- (logger) changed getChild to child
 ### Removed
+### Security
+
+## [0.3.2] - 2019-06-06
+### Fixed
+- (logger) changed getChild to child
 ### Security
 - (dependencies) updated config, node-rdkafka, prom-client and logger
 
@@ -25,5 +29,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - (dependencies) updated node-rdkafka and logger
 
 [Unreleased]: https://github.com/sguilly/simple-kafka-promise/commits
+[0.3.2]: https://github.com/sguilly/simple-kafka-promise/commits/v0.3.2
 [0.3.1]: https://github.com/sguilly/simple-kafka-promise/commits/v0.3.1
 [0.3.0]: https://github.com/sguilly/simple-kafka-promise/commits/v0.3.0
