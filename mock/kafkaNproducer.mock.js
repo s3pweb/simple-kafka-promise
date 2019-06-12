@@ -39,6 +39,34 @@ class KafkaProducerMock {
     }
 
     this.indexMessage = 0
+
+    this.producer = {
+      getMetadata(opts, cb) {
+        let metadata = {
+          topics: [
+            {
+              name: 'rawUpstream',
+              partitions: {
+                length: 12
+              }
+            },
+            {
+              name: 'rawEvents',
+              partitions: {
+                length: 12
+              }
+            },
+            {
+              name: 'events',
+              partitions: {
+                length: 12
+              }
+            }
+          ]
+        }
+        cb(null, metadata)
+      } 
+    }
   }
 
   connect (uuid = require('uuid/v1')()) {
