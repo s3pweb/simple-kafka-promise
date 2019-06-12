@@ -1,5 +1,3 @@
-const config = require('config')
-
 const Uuid = require('uuid/v4')
 
 let instance = null
@@ -11,15 +9,6 @@ class KafkaConsumerMock {
       : container.log
 
     this.kafkaGlobalUuid = 'KafkaConsumerGlobalUuid'
-
-    const consumerConfig = {
-      ...(container.config ? container.config : config.kafka.consumer.config),
-      ...{
-        'enable.auto.commit': false,
-        'socket.keepalive.enable': true
-      }
-    }
-
   }
 
   connect (topics, uuid = Uuid()) {
@@ -27,22 +16,18 @@ class KafkaConsumerMock {
     this.kafkaGlobalUuid = uuid
 
     return new Promise((resolve, reject) => {
-
       resolve()
-
     })
   }
 
   disconnect () {
     return new Promise((resolve, reject) => {
-
       resolve()
-      
     })
   }
 
   subscribe (topics) {
-    
+
   }
 
   commit (args) {
@@ -64,7 +49,6 @@ class KafkaConsumerMock {
       }
 
       resolve([])
-
     })
   }
 }

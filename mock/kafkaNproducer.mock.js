@@ -39,8 +39,6 @@ class KafkaProducerMock {
     }
 
     this.indexMessage = 0
-
-
   }
 
   connect (uuid = require('uuid/v1')()) {
@@ -71,7 +69,6 @@ class KafkaProducerMock {
 
   sendMessagesAndWaitReport (args) {
     return new Promise(async (resolve, reject) => {
-
       if (!args) {
         reject(new Error('Missing arguments'))
       } else if (!args.topic) {
@@ -90,7 +87,6 @@ class KafkaProducerMock {
       this.indexMessage = this.indexMessage + nbEvents
 
       resolve()
-
     })
   }
 }
