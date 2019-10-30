@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Removed
 ### Security
+- (dependencies) updated config, hirestime, uuid, prom-client and logger
 
 ## [0.3.2] - 2019-06-06
 ### Fixed
