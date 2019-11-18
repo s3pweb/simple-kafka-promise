@@ -20,7 +20,7 @@
   "dependencies": {
     "config": "3.2.4",
     "hirestime": "3.2.2",
-    "node-rdkafka": "2.7.0",
+    "node-rdkafka": "2.7.4",
     "uuid": "3.3.3"
   },
   "devDependencies": {
