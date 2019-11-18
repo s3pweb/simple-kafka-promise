@@ -7,12 +7,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 ### Changed
-- (dependencies) updated node-rdkafka to 2.7.4
 ### Deprecated
 ### Fixed
 ### Removed
 ### Security
+
+## [1.0.2] - 2019-11-18
+### Changed
+- (dependencies) updated node-rdkafka to 2.7.4
+### Security
 - (dependencies) updated config, hirestime, uuid, prom-client and logger
+
+## [1.0.1] - 2019-06-12
+### Fixed
+- (mock) KafkaProducerMock -> producer.getMetadata
+
+## [1.0.0] - 2019-06-12
+### Added
+- (mock) consumer + producer
 
 ## [0.3.2] - 2019-06-06
 ### Fixed
@@ -30,7 +42,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Security
 - (dependencies) updated node-rdkafka and logger
 
-[Unreleased]: https://github.com/sguilly/simple-kafka-promise/commits
-[0.3.2]: https://github.com/sguilly/simple-kafka-promise/commits/v0.3.2
-[0.3.1]: https://github.com/sguilly/simple-kafka-promise/commits/v0.3.1
-[0.3.0]: https://github.com/sguilly/simple-kafka-promise/commits/v0.3.0
+[Unreleased]: https://github.com/s3pweb/simple-kafka-promise/commits
+[1.0.2]: https://github.com/s3pweb/simple-kafka-promise/commits/v1.0.2
+[1.0.1]: https://github.com/s3pweb/simple-kafka-promise/commits/v1.0.1
+[1.0.0]: https://github.com/s3pweb/simple-kafka-promise/commits/v1.0.0
+[0.3.2]: https://github.com/s3pweb/simple-kafka-promise/commits/v0.3.2
+[0.3.1]: https://github.com/s3pweb/simple-kafka-promise/commits/v0.3.1
+[0.3.0]: https://github.com/s3pweb/simple-kafka-promise/commits/v0.3.0
