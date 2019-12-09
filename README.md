@@ -1,5 +1,13 @@
 # Simple kafka promise
 
+## Latest release 1.1.0
+### Changed
+- (standard) ran standard --fix and removed unused prometheus instances
+- (npm) improved git ignore and removed npm ignore
+- (npm) changed package name to @s3pweb/simple-kafka-promise
+- (sources) moved sources files to src folder
+- (npm) published files are now whitelisted in package.json
+
 ## Installation
 
 ```bash
@@ -32,7 +40,7 @@ environment variables, command line parameters, or external sources. See : http:
       "config": {
         "metadata.broker.list": "localhost:9094"
       },
-      "topicsPrefix": "s3pweb."
+      "topicsPrefix": "prefix."
     }
   },
 
@@ -65,15 +73,15 @@ environment variables, command line parameters, or external sources. See : http:
 ## Create instance
 
 ```js
-var producer = require("..").producer({ log: log, prom: promClient });
-var consumer = require("..").consumer({ log: log });
+const producer = require("@s3pweb/simple-kafka-promise").producer({ log: log, prom: promClient });
+const consumer = require("@s3pweb/simple-kafka-promise").consumer({ log: log });
 ```
 
 Or you could overwrite the config section by passing it as params :
 
 ```js
-var producer = require("..").producer({ log: log, prom: promClient, config: { "metadata.broker.list": "localhost:9094" } });
-var consumer = require("..").consumer({ log: log, config: { "metadata.broker.list": "localhost:9094","group.id": "test.group"} });
+const producer = require("@s3pweb/simple-kafka-promise").producer({ log: log, prom: promClient, config: { "metadata.broker.list": "localhost:9094" } });
+const consumer = require("@s3pweb/simple-kafka-promise").consumer({ log: log, config: { "metadata.broker.list": "localhost:9094","group.id": "test.group"} });
 ```
 
 ## Example
