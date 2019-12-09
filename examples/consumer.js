@@ -1,15 +1,13 @@
-const clientPrometheus = require('prom-client')
-
 function later (delay) {
   return new Promise(function (resolve) {
     setTimeout(resolve, delay)
   })
 }
 
-var t = async () => {
-  var log = require('s3pweb-logger').logger
+const t = async () => {
+  const log = require('s3pweb-logger').logger
 
-  var consumer = require('..').consumer({ log: log, prom: clientPrometheus })
+  const consumer = require('..').consumer({ log: log })
 
   await consumer.connect(['s3pweb.test223'])
 
@@ -17,16 +15,16 @@ var t = async () => {
 
   await later(200)
 
-  var previousPartition = 0
-  var cpt = 0
+  let previousPartition = 0
+  let cpt = 0
 
   while (cpt < 200) {
-    var messages = await consumer.listen({ number: 10, autoCommit: true })
+    const messages = await consumer.listen({ number: 10, autoCommit: true })
 
-    for (let message of messages) {
+    for (const message of messages) {
       cpt++
 
-      var txt = `${message.partition} - ${message.offset} * `
+      const txt = `${message.partition} - ${message.offset} * `
 
       if (previousPartition !== message.partition) {
         previousPartition = message.partition

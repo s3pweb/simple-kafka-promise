@@ -1,18 +1,16 @@
 const clientPrometheus = require('prom-client')
 
-// const faker = require('faker')
-
 function later (delay) {
   return new Promise(function (resolve) {
     setTimeout(resolve, delay)
   })
 }
 
-var t = async () => {
-  var log = require('s3pweb-logger').logger
+const t = async () => {
+  const log = require('s3pweb-logger').logger
 
   try {
-    var producer = require('..').producer({ log: log, prom: clientPrometheus })
+    const producer = require('..').producer({ log: log, prom: clientPrometheus })
 
     await producer.connect()
 
@@ -22,13 +20,14 @@ var t = async () => {
 
     await later(200)
 
-    // var topicName = faker.random.alphaNumeric(10)
-    var topicName = 'test223'
+    // let topicName = faker.random.alphaNumeric(10)
+    const topicName = 'test223'
 
     for (let index = 0; index < 10; index++) {
       try {
-        var p1 = producer.sendMessagesAndWaitReport(
-          { topic: topicName,
+        const p1 = producer.sendMessagesAndWaitReport(
+          {
+            topic: topicName,
             messages: [
               { message: 1.1 },
               { message: 1.2 },
@@ -40,11 +39,13 @@ var t = async () => {
               { message: 1.4 }
             ],
             partition: 0,
-            key: 'key1' }
+            key: 'key1'
+          }
         )
 
-        var p2 = producer.sendMessagesAndWaitReport(
-          { topic: topicName,
+        const p2 = producer.sendMessagesAndWaitReport(
+          {
+            topic: topicName,
             messages: [
               { message: 2.1 },
               { message: 2.2 },

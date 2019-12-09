@@ -7,14 +7,9 @@ class KafkaConsumerMock {
     this.log = container.log.child
       ? container.log.child({ child: 'KafkaConsumerMock' })
       : container.log
-
-    this.kafkaGlobalUuid = 'KafkaConsumerGlobalUuid'
   }
 
-  connect (topics, uuid = Uuid()) {
-    // Kafka global uuid is the same as the server for ease of search
-    this.kafkaGlobalUuid = uuid
-
+  connect (topics, uuid) {
     return new Promise((resolve, reject) => {
       resolve()
     })
@@ -56,9 +51,6 @@ class KafkaConsumerMock {
 module.exports = container => {
   if (!container || !container.log) {
     console.error('Please provide a logger instance for kafka consumer!')
-    process.exit(1)
-  } else if (!container || !container.prom) {
-    console.error('Please provide a prom instance for kafka consumer!')
     process.exit(1)
   } else {
     if (!instance) {
