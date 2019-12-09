@@ -1,5 +1,5 @@
 {
-  "name": "simple-kafka-promise",
+  "name": "@s3pweb/simple-kafka-promise",
   "version": "1.0.2",
   "description": "A simple kafka with promise method",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sguilly/simple-kafka-promise.git"
+    "url": "git+https://github.com/s3pweb/simple-kafka-promise.git"
   },
   "author": "Stéphane GUILLY - S3PWEB",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sguilly/simple-kafka-promise/issues"
+    "url": "https://github.com/s3pweb/simple-kafka-promise/issues"
   },
-  "homepage": "https://github.com/sguilly/simple-kafka-promise#readme",
+  "homepage": "https://github.com/s3pweb/simple-kafka-promise#readme",
   "dependencies": {
     "config": "3.2.4",
     "hirestime": "3.2.2",
