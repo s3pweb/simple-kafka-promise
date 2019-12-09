@@ -26,5 +26,8 @@
   "devDependencies": {
     "prom-client": "11.5.3",
     "s3pweb-logger": "1.0.1"
-  }
+  },
+  "files": [
+    "/src"
+  ]
 }

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 ### Changed
+- (standard) ran standard --fix and removed unused prometheus instances
+- (npm) improved git ignore and removed npm ignore
+- (npm) changed package name to @s3pweb/simple-kafka-promise
+- (sources) moved sources files to src folder
+- (npm) published files are now whitelisted in package.json
 ### Deprecated
 ### Fixed
 ### Removed
