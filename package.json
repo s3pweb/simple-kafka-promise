@@ -1,17 +1,19 @@
 {
   "name": "@s3pweb/simple-kafka-promise",
   "version": "1.1.0",
-  "description": "A simple kafka with promise method",
-  "main": "src/index.js",
+  "description": "A simple node-rdkafka lib with Promise.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "linter": "node_modules/.bin/standard --fix",
-    "test": "npm run linter && echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "lint": "eslint . & echo 'lint complete'",
+    "test": "npm run lint && echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/s3pweb/simple-kafka-promise.git"
   },
-  "author": "Stéphane GUILLY - S3PWEB",
+  "author": "S3pweb",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/s3pweb/simple-kafka-promise/issues"
@@ -24,10 +26,14 @@
     "uuid": "3.3.3"
   },
   "devDependencies": {
+    "@types/config": "0.0.36",
+    "@types/node": "^12.12.21",
     "prom-client": "11.5.3",
-    "s3pweb-logger": "1.0.1"
+    "s3pweb-logger": "1.0.1",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
   },
   "files": [
-    "/src"
+    "dist/**/"
   ]
 }
