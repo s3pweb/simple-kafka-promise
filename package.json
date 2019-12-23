@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint . & echo 'lint complete'",
+    "lint": "tslint --project .",
     "test": "npm run lint && echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
