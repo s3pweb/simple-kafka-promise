@@ -5,7 +5,7 @@ function later (delay) {
 }
 
 const t = async () => {
-  const log = require('s3pweb-logger').logger
+  const log = require('@s3pweb/s3pweb-logger').logger
 
   const consumer = require('..').consumer({ log: log })
 

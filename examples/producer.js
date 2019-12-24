@@ -7,7 +7,7 @@ function later (delay) {
 }
 
 const t = async () => {
-  const log = require('s3pweb-logger').logger
+  const log = require('@s3pweb/s3pweb-logger').logger
 
   try {
     const producer = require('..').producer({ log: log, prom: clientPrometheus })
