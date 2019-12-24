@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 ### Changed
+- (index) changed export style to typescript 
+- (producer) started migration of high level producer to typescript
 ### Deprecated
 ### Fixed
 ### Removed
+- (producer) removed kafkaNProducer
 ### Security
 
 ## [1.1.0] - 2019-12-09
