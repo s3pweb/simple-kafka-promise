@@ -2,17 +2,11 @@ import * as config from 'config';
 import { HighLevelProducer } from 'node-rdkafka';
 
 export class KafkaProducer {
-  private log: any;
-  private kafkaGlobalUuid: string;
   private connected: boolean;
   private readonly producerConfig: any;
-  private readonly producer: any;
+  private readonly producer: HighLevelProducer;
 
-  constructor(container) {
-    this.log = container.log.child
-      ? container.log.child({child: 'KafkaHLProducer'})
-      : container.log;
-    this.kafkaGlobalUuid = 'KafkaProducerGlobalUuid';
+  constructor() {
     this.connected = false;
 
     this.producerConfig = {
@@ -25,34 +19,28 @@ export class KafkaProducer {
     };
 
     this.producer = new HighLevelProducer(this.producerConfig, {});
-
-    this.log.trace(`Creating kafka producer.\n${JSON.stringify(this.producerConfig)}`);
   }
 
-  connect(uuid: string): Promise<null> {
-    this.kafkaGlobalUuid = uuid;
-
+  /**
+   * Connect the producer to kafka, will return broker's metadata or nothing if already connected.
+   */
+  connect(): Promise<object | null> {
     return new Promise((resolve, reject) => {
-      this.log.trace({uuid: this.kafkaGlobalUuid}, 'Starting Kafka producer');
-
       if (this.producer && this.connected === true) {
-        this.log.trace({uuid: this.kafkaGlobalUuid}, 'Kafka already connected');
         resolve();
       } else {
         this.producer.setValueSerializer((v) => v);
         this.producer.setKeySerializer((v) => v);
 
-        this.log.trace({uuid: this.kafkaGlobalUuid}, `Creating producer.\n${JSON.stringify(this.producerConfig)}`);
-
         this.producer.on('event.throttle', (throttle) => {
-          this.log.trace('throttle', throttle);
+          // TODO expose a function to display event.throttle
         });
 
         this.producer.on('event.log', (log) => {
           const notDisplay = ['TOPPAR', 'APIVERSION'];
 
           if (notDisplay.indexOf(log.fac) === -1) {
-            this.log.trace(`Event log: ${JSON.stringify(log)}`);
+            // TODO expose a function to display event.log
           }
         });
 
@@ -60,13 +48,10 @@ export class KafkaProducer {
           null,
           (err, metadata) => {
             if (err) {
-              this.log.warn({uuid: this.kafkaGlobalUuid, err}, 'Producer error while connecting');
               reject(err);
             } else {
-              this.log.trace(JSON.stringify(metadata, null, 2));
-              this.log.trace({uuid: this.kafkaGlobalUuid}, 'Kafka producer ready');
               this.connected = true;
-              resolve();
+              resolve(metadata);
             }
           },
         );
@@ -74,40 +59,39 @@ export class KafkaProducer {
     });
   }
 
-  disconnect(): Promise<null> {
-    return new Promise((resolve) => {
-      this.log.trace({uuid: this.kafkaGlobalUuid}, 'Try to disconnecting producer');
-
+  /**
+   * Poll then disconnect hte producer from Kafka.
+   *
+   * @return The producer metrics.
+   */
+  disconnect(): Promise<object> {
+    return new Promise((resolve, reject) => {
       this.producer.poll();
-
-      this.producer.disconnect();
-
-      this.producer.once('disconnected', (arg) => {
-        this.log.trace({uuid: this.kafkaGlobalUuid}, 'producer disconnected. ' + JSON.stringify(arg));
-
+      this.producer.disconnect(((err, data) => {
         this.connected = false;
 
-        setTimeout(() => {
-          resolve();
-        }, 2000);
-      });
+        if (err) {
+          // Should not happen
+          reject(err);
+        } else {
+          resolve(data);
+        }
+      }));
     });
   }
 
   /**
    * Send a message to Kafka and await ack.
    *
-   * @param topic
-   * @param message
-   * @param partition
-   * @param key
-   * @param uid
+   * @param topic Topic to send message to.
+   * If `kafka.producer.topicsPrefix` exist in config, the full topic will be `kafka.producer.topicsPrefix + topic`
+   * @param message Message to be sent.
+   * @param partition Topic partition.
+   * @param key Kafka key to be sent along the message.
    */
-  sendMessage(topic: string, message: string, partition: number, key: any, uid: string): Promise<number> {
+  sendMessage(topic: string, message: string, partition: number, key: any): Promise<number> {
     return new Promise((resolve, reject) => {
       const fullTopic = (config.get('kafka.producer.topicsPrefix') ? config.get('kafka.producer.topicsPrefix') : '') + topic;
-
-      this.log.trace({uuid: uid}, `Sending message to ${fullTopic}`);
 
       this.producer.produce(
         fullTopic,
