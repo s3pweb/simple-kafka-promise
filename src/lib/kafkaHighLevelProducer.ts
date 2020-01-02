@@ -27,22 +27,11 @@ export class KafkaProducer {
   connect(): Promise<object | null> {
     return new Promise((resolve, reject) => {
       if (this.producer && this.connected === true) {
+        // Do nothing if we are already connected
         resolve();
       } else {
         this.producer.setValueSerializer((v) => v);
         this.producer.setKeySerializer((v) => v);
-
-        this.producer.on('event.throttle', (throttle) => {
-          // TODO expose a function to display event.throttle
-        });
-
-        this.producer.on('event.log', (log) => {
-          const notDisplay = ['TOPPAR', 'APIVERSION'];
-
-          if (notDisplay.indexOf(log.fac) === -1) {
-            // TODO expose a function to display event.log
-          }
-        });
 
         this.producer.connect(
           null,
@@ -85,11 +74,11 @@ export class KafkaProducer {
    *
    * @param topic Topic to send message to.
    * If `kafka.producer.topicsPrefix` exist in config, the full topic will be `kafka.producer.topicsPrefix + topic`
-   * @param message Message to be sent.
+   * @param message Message to be sent (will be parsed with `JSON.stringify(...)` before).
    * @param partition Topic partition.
    * @param key Kafka key to be sent along the message.
    */
-  sendMessage(topic: string, message: string, partition: number, key: any): Promise<number> {
+  sendMessage(topic: string, message: object, partition: number, key: any): Promise<number> {
     return new Promise((resolve, reject) => {
       const fullTopic = (config.get('kafka.producer.topicsPrefix') ? config.get('kafka.producer.topicsPrefix') : '') + topic;
 
