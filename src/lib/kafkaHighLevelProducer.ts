@@ -30,6 +30,7 @@ export class KafkaProducer {
         // Do nothing if we are already connected
         resolve();
       } else {
+        // Fix for https://github.com/Blizzard/node-rdkafka/issues/600
         this.producer.setValueSerializer((v) => v);
         this.producer.setKeySerializer((v) => v);
 
@@ -80,7 +81,13 @@ export class KafkaProducer {
    */
   sendMessage(topic: string, message: object, partition: number, key: any): Promise<number> {
     return new Promise((resolve, reject) => {
-      const fullTopic = (config.get('kafka.producer.topicsPrefix') ? config.get('kafka.producer.topicsPrefix') : '') + topic;
+      // Topic prefix
+      let prefix = '';
+      // Check if prefix exist before accessing it
+      if (config.has('kafka.producer.topicsPrefix')) {
+        prefix = config.get('kafka.producer.topicsPrefix');
+      }
+      const fullTopic = prefix + topic;
 
       this.producer.produce(
         fullTopic,
