@@ -56,7 +56,6 @@ export class KafkaProducer {
    */
   disconnect(): Promise<object> {
     return new Promise((resolve, reject) => {
-      this.producer.poll();
       this.producer.disconnect(((err, data) => {
         this.connected = false;
 

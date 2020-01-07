@@ -11,8 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - (producer) started migration of high level producer to typescript
 ### Deprecated
 ### Fixed
+- (producer) fixed thrown error if kafka.producer.topicsPrefix was missing
 ### Removed
 - (producer) removed kafkaNProducer
+- (producer) removed poll() before disconnecting
 ### Security
 
 ## [1.1.0] - 2019-12-09
