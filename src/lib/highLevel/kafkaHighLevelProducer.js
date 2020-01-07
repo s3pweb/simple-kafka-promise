@@ -92,6 +92,17 @@ class KafkaProducer {
     })
   }
 
+  /**
+   * Send a message to Kafka and await ack.
+   *
+   * @param {string} topic Topic to send message to.
+   * If `kafka.producer.topicsPrefix` exist in config, the full topic will be `kafka.producer.topicsPrefix + topic`
+   * @param {object} message Message to be sent (will be parsed with `JSON.stringify(...)` before).
+   * @param {number} partition Topic partition.
+   * @param {string} key Kafka key to be sent along the message.
+   * @param {string} uid unique identifier for logs
+   * @return {Promise<number>} Offset value
+   */
   sendMessage (topic, message, partition, key, uid) {
     return new Promise((resolve, reject) => {
       const fullTopic = (config.kafka.producer.topicsPrefix ? config.kafka.producer.topicsPrefix : '') + topic
