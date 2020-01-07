@@ -78,8 +78,6 @@ class KafkaProducer {
     return new Promise((resolve, reject) => {
       this.log.trace({ uuid: this.kafkaGlobalUuid }, 'Try to disconnecting producer')
 
-      this.producer.poll()
-
       this.producer.disconnect()
 
       this.producer.once('disconnected', arg => {

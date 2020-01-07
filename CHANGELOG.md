@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Deprecated
 ### Fixed
 ### Removed
+- (producer) removed useless poll() before disconnecting in kafkaHighLevelProducer
 ### Security
 
 ## [1.1.0] - 2019-12-09
