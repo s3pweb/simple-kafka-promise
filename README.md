@@ -1,12 +1,8 @@
 # Simple kafka promise
 
-## Latest release 1.1.0
-### Changed
-- (standard) ran standard --fix and removed unused prometheus instances
-- (npm) improved git ignore and removed npm ignore
-- (npm) changed package name to @s3pweb/simple-kafka-promise
-- (sources) moved sources files to src folder
-- (npm) published files are now whitelisted in package.json
+## Latest release 1.1.1
+### Removed
+- (producer) removed useless poll() before disconnecting in kafkaHighLevelProducer
 
 ## Installation
 

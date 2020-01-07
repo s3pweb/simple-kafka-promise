@@ -10,8 +10,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Deprecated
 ### Fixed
 ### Removed
-- (producer) removed useless poll() before disconnecting in kafkaHighLevelProducer
 ### Security
+
+## [1.1.1] - 2020-01-07
+### Removed
+- (producer) removed useless poll() before disconnecting in kafkaHighLevelProducer
 
 ## [1.1.0] - 2019-12-09
 ### Changed
@@ -52,6 +55,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - (dependencies) updated node-rdkafka and logger
 
 [Unreleased]: https://github.com/s3pweb/simple-kafka-promise/commits
+[1.1.1]: https://github.com/s3pweb/simple-kafka-promise/commits/v1.1.1
 [1.1.0]: https://github.com/s3pweb/simple-kafka-promise/commits/v1.1.0
 [1.0.2]: https://github.com/s3pweb/simple-kafka-promise/commits/v1.0.2
 [1.0.1]: https://github.com/s3pweb/simple-kafka-promise/commits/v1.0.1
