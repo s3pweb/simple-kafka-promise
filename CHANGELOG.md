@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - (index) changed export style to typescript 
 - (producer) started migration of high level producer to typescript
+- (consumer) started migration of kafka consumer to typescript
 ### Deprecated
 ### Fixed
 - (producer) fixed thrown error if kafka.producer.topicsPrefix was missing

@@ -1,7 +1,7 @@
 export { KafkaProducer } from './lib/kafkaHighLevelProducer';
+export { KafkaConsumer } from './lib/kafkaConsumer';
 
-import consumer = require('./lib/kafkaNconsumer');
 import consumerMock = require('./mock/kafkaNconsumer.mock');
 import producerMock = require('./mock/kafkaNproducer.mock');
 
-export { consumer, consumerMock, producerMock };
+export { consumerMock, producerMock };
