@@ -56,7 +56,7 @@ export class KafkaProducer {
   }
 
   /**
-   * Poll then disconnect hte producer from Kafka.
+   * Disconnect the producer from Kafka.
    *
    * @return The producer metrics.
    */
