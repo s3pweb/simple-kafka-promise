@@ -1,7 +1,8 @@
 import { KafkaConsumer as Consumer } from 'node-rdkafka';
+import { KafkaConsumerInterface } from './kafkaConsumerInterface';
 
-export class KafkaConsumer {
-  private consumer: Consumer;
+export class KafkaConsumer implements KafkaConsumerInterface {
+  private readonly consumer: Consumer;
   private readonly consumeTimeout: number;
 
   /**
@@ -46,11 +47,6 @@ export class KafkaConsumer {
     });
   }
 
-  /**
-   * Disconnect the consumer from Kafka.
-   *
-   * @return The consumer metrics.
-   */
   disconnect(): Promise<object> {
     return new Promise((resolve, reject) => {
       this.consumer.disconnect((err, metrics) => {
@@ -69,9 +65,6 @@ export class KafkaConsumer {
     this.consumer.subscribe(topics);
   }
 
-  /**
-   * @return node-rdkafka topicPartitions
-   */
   commit(): Promise<any> {
     return new Promise((resolve, reject) => {
       this.consumer.commit();
@@ -85,11 +78,6 @@ export class KafkaConsumer {
     });
   }
 
-  /**
-   * @param numberOfMessages
-   * @param autoCommit
-   * @return Consumed messages
-   */
   listen(numberOfMessages: number, autoCommit: boolean): Promise<object[]> {
     return new Promise((resolve, reject) => {
       this.consumer.consume(numberOfMessages, (err, messages) => {
