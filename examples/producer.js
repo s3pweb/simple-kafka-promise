@@ -1,4 +1,6 @@
-const clientPrometheus = require('prom-client')
+'use strict'
+
+const KafkaProducer = require('../dist/index').KafkaProducer
 
 function later (delay) {
   return new Promise(function (resolve) {
@@ -7,67 +9,26 @@ function later (delay) {
 }
 
 const t = async () => {
-  const log = require('@s3pweb/s3pweb-logger').logger
-
   try {
-    const producer = require('..').producer({ log: log, prom: clientPrometheus })
+    const producer = new KafkaProducer({ 'metadata.broker.list': '0.0.0.0:9094' }, '')
 
     await producer.connect()
 
     console.log('connected')
 
     console.log('wait a little')
-
     await later(200)
 
-    // let topicName = faker.random.alphaNumeric(10)
     const topicName = 'test223'
 
     for (let index = 0; index < 10; index++) {
       try {
-        const p1 = producer.sendMessagesAndWaitReport(
-          {
-            topic: topicName,
-            messages: [
-              { message: 1.1 },
-              { message: 1.2 },
-              { message: 1.3 },
-              { message: 1.4 },
-              { message: 1.1 },
-              { message: 1.2 },
-              { message: 1.3 },
-              { message: 1.4 }
-            ],
-            partition: 0,
-            key: 'key1'
-          }
-        )
+        const p1 = await producer.sendMessage(topicName, { message: `p1:${index}` }, 0, null)
+        const p2 = await producer.sendMessage(topicName, { message: `p2:${index}` }, 0, null)
 
-        const p2 = producer.sendMessagesAndWaitReport(
-          {
-            topic: topicName,
-            messages: [
-              { message: 2.1 },
-              { message: 2.2 },
-              { message: 2.3 },
-              { message: 2.4 },
-              { message: 2.1 },
-              { message: 2.2 },
-              { message: 2.3 },
-              { message: 2.4 },
-              { message: 2.1 },
-              { message: 2.2 },
-              { message: 2.3 },
-              { message: 2.4 }
-            ],
-            key: 'key2'
-          }
-        )
-
-        await Promise.all([p1, p2])
+        console.log(`Loop ${index}: p1 offset = ${p1}, p2 offset = ${p2}`)
       } catch (error) {
-        console.log(`Loop ${index} -> error`, error)
-
+        console.error(`Loop ${index} -> error`, error)
         await later(5000)
       }
 
@@ -80,4 +41,6 @@ const t = async () => {
   }
 }
 
-t()
+t().catch((err) => {
+  console.error(err)
+})

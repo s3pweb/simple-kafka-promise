@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - (consumer) migration of kafka consumer to typescript
 - (mock) migration of mocked consumer to typescript
 - (mock) migration of mocked producer to typescript
+- (examples) updated examples for producer and consumer
 ### Deprecated
 ### Fixed
 - (producer) fixed thrown error if kafka.producer.topicsPrefix was missing
