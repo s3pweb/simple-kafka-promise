@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+### Changed
+### Deprecated
+### Fixed
+### Removed
+### Security
+
+## [2.0.0] - 2020-01-14
+### Added
 - (consumer) added consumer interface
 ### Changed
 - (index) changed export style to typescript 
@@ -14,7 +22,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - (mock) migration of mocked consumer to typescript
 - (mock) migration of mocked producer to typescript
 - (examples) updated examples for producer and consumer
-### Deprecated
 ### Fixed
 - (producer) fixed thrown error if kafka.producer.topicsPrefix was missing
 ### Removed
@@ -22,7 +29,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - (producer) removed poll() before disconnecting
 - (dependencies) removed unused hirestime and uuid dependency
 - (dependencies) removed unused prom-client, s3pweb-logger and config dependency
-### Security
 
 ## [1.1.1] - 2020-01-07
 ### Removed
@@ -67,6 +73,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - (dependencies) updated node-rdkafka and logger
 
 [Unreleased]: https://github.com/s3pweb/simple-kafka-promise/commits
+[2.0.0]: https://github.com/s3pweb/simple-kafka-promise/commits/v2.0.0
 [1.1.1]: https://github.com/s3pweb/simple-kafka-promise/commits/v1.1.1
 [1.1.0]: https://github.com/s3pweb/simple-kafka-promise/commits/v1.1.0
 [1.0.2]: https://github.com/s3pweb/simple-kafka-promise/commits/v1.0.2

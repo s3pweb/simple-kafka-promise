@@ -5,9 +5,27 @@ and consumer wrapped with promise to allow the use of `async / await` with minim
 
 This library is fully written in TypeScript.
 
-## Latest release 1.1.1
+## Latest release 2.0.0 - 2020-01-14
+### Added
+- (consumer) added consumer interface
+### Changed
+- (index) changed export style to typescript 
+- (producer) migration of high level producer to typescript
+- (consumer) migration of kafka consumer to typescript
+- (mock) migration of mocked consumer to typescript
+- (mock) migration of mocked producer to typescript
+- (examples) updated examples for producer and consumer
+### Fixed
+- (producer) fixed thrown error if kafka.producer.topicsPrefix was missing
 ### Removed
-- (producer) removed useless poll() before disconnecting in kafkaHighLevelProducer
+- (producer) removed kafkaNProducer
+- (producer) removed poll() before disconnecting
+- (dependencies) removed unused hirestime and uuid dependency
+- (dependencies) removed unused prom-client, s3pweb-logger and config dependency
+
+## Breaking changes from 1.x.x
+- Producer and consumer now are classes and have a constructor
+- No more direct need for node-config and a logger
 
 ## Installation
 
