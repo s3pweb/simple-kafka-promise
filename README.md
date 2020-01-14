@@ -1,5 +1,10 @@
 # Simple kafka promise
 
+This library is based on [node-rdkafka](https://github.com/Blizzard/node-rdkafka) and aim to provide a simple producer 
+and consumer wrapped with promise to allow the use of `async / await` with minimal configuration and overhead.
+
+This library is fully written in TypeScript.
+
 ## Latest release 1.1.1
 ### Removed
 - (producer) removed useless poll() before disconnecting in kafkaHighLevelProducer
@@ -10,98 +15,72 @@
 npm install @s3pweb/simple-kafka-promise
 ```
 
-## Config
+## Configuration
 
-Configurations are stored in configuration files within your application, and can be overridden and extended by 
-environment variables, command line parameters, or external sources. See : http://lorenwest.github.io/node-config/
-
-1. Create a config folder
-
-2. Create a file(s) with the name of your environments(s) like `test.json`
-
-3. Paste this configuration template:
-
+Minimal configuration for the **consumer** is:
 ```json
-{
-  "name": "your-application-name",
-
-  "kafka": {
-    "consumer": {
-      "config": {
-        "metadata.broker.list": "localhost:9094",
-        "group.id": "test.group"
-      }
-    },
-    "producer": {
-      "config": {
-        "metadata.broker.list": "localhost:9094"
-      },
-      "topicsPrefix": "prefix."
-    }
-  },
-
-  "logger": {
-    "source": false,
-    "console": {
-      "enable": true,
-      "level": "debug"
-    },
-    "file": {
-      "enable": true,
-      "level": "info",
-      "dir": "./logs"
-    },
-    "server": {
-      "enable": true,
-      "level": "trace",
-      "url": "0.0.0.0",
-      "port": "9998",
-      "type": "elk"
-    },
-    "ringBuffer": {
-      "enable": true,
-      "size": 50
-    }
-  }
-}
+{ "metadata.broker.list": "0.0.0.0:9094", "group.id": "test.group" }
 ```
 
-## Create instance
-
-```js
-const producer = require("@s3pweb/simple-kafka-promise").producer({ log: log, prom: promClient });
-const consumer = require("@s3pweb/simple-kafka-promise").consumer({ log: log });
+Minimal configuration for the **producer** is:
+```json
+{ "metadata.broker.list": "0.0.0.0:9094" }
 ```
 
-Or you could overwrite the config section by passing it as params :
+This project is based on node-rdkafka and supports the same configuration options.
+Go [here](https://github.com/Blizzard/node-rdkafka#configuration) for more details.
+
+## Create a consumer instance
 
 ```js
-const producer = require("@s3pweb/simple-kafka-promise").producer({ log: log, prom: promClient, config: { "metadata.broker.list": "localhost:9094" } });
-const consumer = require("@s3pweb/simple-kafka-promise").consumer({ log: log, config: { "metadata.broker.list": "localhost:9094","group.id": "test.group"} });
+const KafkaConsumer = require('@s3pweb/simple-kafka-promise').KafkaConsumer
+
+// Create a new instance
+const consumer = new KafkaConsumer({ 'metadata.broker.list': '0.0.0.0:9094', 'group.id': 'test.group' }, 1000)
+
+// Connect
+await consumer.connect(['topicName'])
+
+// Consume messages
+const messagesArray = await consumer.listen(100, true)
+
+// Disconnect the consumer
+await consumer.disconnect()
+```
+
+To use with typescript, just change the import to
+```typescript
+import { KafkaConsumer } from '@s3pweb/simple-kafka-promise';
+```
+
+## Create a producer instance
+
+```js
+const KafkaProducer = require('@s3pweb/simple-kafka-promise').KafkaProducer
+
+// Create a new instance
+const producer = new KafkaProducer({ 'metadata.broker.list': '0.0.0.0:9094' }, '')
+
+// Connect
+await producer.connect(['topicName'])
+
+// Produce some messages
+const offset = await producer.sendMessage(topicName, { message: `My message.` }, 0, null)
+
+// Disconnect
+await producer.disconnect()
+```
+
+To use with typescript, just change the import to
+```typescript
+import { KafkaProducer } from '@s3pweb/simple-kafka-promise';
 ```
 
 ## Example
 
 To produce some messages take a look at `./examples/producer.js` and to consume some messages take a look at `./examples/consumer.js`.
 
-## Bonus
+## Docker
 
-1. Install ELK stack for logging on docker
-
-```bash
-
-chmod +x example/startElk.sh
-
-./example/startElk.sh
-
-```
-
-Open your favorite browser : http://localhost:5601
-
-Create an index with just _ (replace logstash-_ by \*)
-
-2. Create a kafka broker on docker
-
-```bash
-docker-compose -f examples/docker-compose.yaml up -d
-```
+If you want to build a docker image based on alpine linux, you need to add some packages to the base image. 
+Go [here](https://github.com/Blizzard/node-rdkafka/blob/master/examples/docker-alpine.md) for more details.
