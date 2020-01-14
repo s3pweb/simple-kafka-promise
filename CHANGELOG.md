@@ -6,10 +6,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- (consumer) added consumer interface
 ### Changed
+- (index) changed export style to typescript 
+- (producer) migration of high level producer to typescript
+- (consumer) migration of kafka consumer to typescript
+- (mock) migration of mocked consumer to typescript
+- (mock) migration of mocked producer to typescript
+- (examples) updated examples for producer and consumer
 ### Deprecated
 ### Fixed
+- (producer) fixed thrown error if kafka.producer.topicsPrefix was missing
 ### Removed
+- (producer) removed kafkaNProducer
+- (producer) removed poll() before disconnecting
+- (dependencies) removed unused hirestime and uuid dependency
+- (dependencies) removed unused prom-client, s3pweb-logger and config dependency
 ### Security
 
 ## [1.1.1] - 2020-01-07

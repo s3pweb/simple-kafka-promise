@@ -1,3 +1,7 @@
+'use strict'
+
+const KafkaConsumer = require('../dist/index').KafkaConsumer
+
 function later (delay) {
   return new Promise(function (resolve) {
     setTimeout(resolve, delay)
@@ -5,9 +9,7 @@ function later (delay) {
 }
 
 const t = async () => {
-  const log = require('s3pweb-logger').logger
-
-  const consumer = require('..').consumer({ log: log })
+  const consumer = new KafkaConsumer({ 'metadata.broker.list': '0.0.0.0:9094', 'group.id': 'test.group' }, 1000)
 
   await consumer.connect(['s3pweb.test223'])
 
@@ -19,7 +21,7 @@ const t = async () => {
   let cpt = 0
 
   while (cpt < 200) {
-    const messages = await consumer.listen({ number: 10, autoCommit: true })
+    const messages = await consumer.listen(10, true)
 
     for (const message of messages) {
       cpt++
