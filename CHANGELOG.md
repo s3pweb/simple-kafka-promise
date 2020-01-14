@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - (producer) removed kafkaNProducer
 - (producer) removed poll() before disconnecting
 - (dependencies) removed node-config dependency
+- (dependencies) removed unused hirestime and uuid dependency
 ### Security
 
 ## [1.1.1] - 2020-01-07
