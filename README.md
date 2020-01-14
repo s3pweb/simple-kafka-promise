@@ -80,6 +80,8 @@ import { KafkaProducer } from '@s3pweb/simple-kafka-promise';
 
 To produce some messages take a look at `./examples/producer.js` and to consume some messages take a look at `./examples/consumer.js`.
 
+If you have docker, you can use `./examples/docker-compose.yaml` to start one `zookeeper` and one `kafka` stack on your machine. 
+This stack comes with `kafkamanager`  and `kafkadrop` for easy monitoring and debugging.
 ## Docker
 
 If you want to build a docker image based on alpine linux, you need to add some packages to the base image. 
