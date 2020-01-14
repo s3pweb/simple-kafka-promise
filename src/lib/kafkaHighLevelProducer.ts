@@ -1,12 +1,12 @@
 import { HighLevelProducer } from 'node-rdkafka';
+import { KafkaProducerInterface } from './kafkaProducerInterface';
 
-export class KafkaProducer {
+export class KafkaProducer implements KafkaProducerInterface {
   private connected: boolean;
   private readonly prefix: string;
   private readonly producer: HighLevelProducer;
 
   /**
-   *
    * @param config Node-rdkafka configuration object. Minimum: `{ "metadata.broker.list": "0.0.0.0:9094" }`
    * @param topicPrefix Prefix to add before each topic name
    */
@@ -26,10 +26,6 @@ export class KafkaProducer {
     this.producer = new HighLevelProducer(producerConfig, {});
   }
 
-  /**
-   * Connect the producer to kafka, will return broker's metadata or nothing if already connected.
-   * @return Broker's metadata
-   */
   connect(): Promise<object | null> {
     return new Promise((resolve, reject) => {
       if (this.producer && this.connected === true) {
@@ -55,11 +51,6 @@ export class KafkaProducer {
     });
   }
 
-  /**
-   * Disconnect the producer from Kafka.
-   *
-   * @return The producer metrics.
-   */
   disconnect(): Promise<object> {
     return new Promise((resolve, reject) => {
       this.producer.disconnect(((err, data) => {
@@ -75,16 +66,6 @@ export class KafkaProducer {
     });
   }
 
-  /**
-   * Send a message to Kafka and await ack.
-   *
-   * @param topic Topic to send message to.
-   * If `kafka.producer.topicsPrefix` exist in config, the full topic will be `kafka.producer.topicsPrefix + topic`
-   * @param message Message to be sent (will be parsed with `JSON.stringify(...)` before).
-   * @param partition Topic partition.
-   * @param key Kafka key to be sent along the message.
-   * @return Message's offset
-   */
   sendMessage(topic: string, message: object, partition: number, key: any): Promise<number> {
     return new Promise((resolve, reject) => {
       // Create full topic
