@@ -1,0 +1,33 @@
+name: Node.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - run: npm ci
+      - run: |
+          if [ ${{ github.event.release.action }} = "prereleased" ]; then
+            npm publish --tag beta
+          else
+            npm publish
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
