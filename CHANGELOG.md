@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 ### Changed
+- (dependencies) update node-rdkafka to 2.8.1
 ### Deprecated
 ### Fixed
 ### Removed
