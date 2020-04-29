@@ -8,7 +8,8 @@
     "build": "tsc",
     "prepublishOnly": "npm run build",
     "lint": "tslint --project .",
-    "test": "npm run lint && echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint && echo \"Error: no test specified\" && exit 1",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
   },
   "homepage": "https://github.com/s3pweb/simple-kafka-promise#readme",
   "dependencies": {
-    "node-rdkafka": "2.8.1"
+    "node-rdkafka": "2.8.1",
+    "standard-version": "^7.1.0"
   },
   "devDependencies": {
     "@types/node": "12.12.21",
