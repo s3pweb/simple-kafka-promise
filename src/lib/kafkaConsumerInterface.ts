@@ -1,4 +1,4 @@
-import { WatermarkOffsets } from 'node-rdkafka';
+import { ClientMetrics, Message, Metadata, TopicPartitionOffset, WatermarkOffsets } from 'node-rdkafka';
 
 export interface KafkaConsumerInterface {
 
@@ -6,13 +6,13 @@ export interface KafkaConsumerInterface {
    * Connect consumer to kafka and subscribe to given topics
    * @param topics Array of topics
    */
-  connect(topics): Promise<object>;
+  connect(topics): Promise<Metadata>;
 
   /**
    * Disconnect the consumer from Kafka.
    * @return The consumer metrics.
    */
-  disconnect(): Promise<object>;
+  disconnect(): Promise<ClientMetrics>;
 
   /**
    * Subscribe to a new array of topics
@@ -24,7 +24,7 @@ export interface KafkaConsumerInterface {
    * Commit current client offsets
    * @return node-rdkafka topicPartitions
    */
-  commit(): Promise<any>;
+  commit(): Promise<TopicPartitionOffset[]>;
 
   /**
    * Listen to a number of messages
@@ -32,7 +32,7 @@ export interface KafkaConsumerInterface {
    * @param autoCommit
    * @return Consumed messages
    */
-  listen(numberOfMessages: number, autoCommit: boolean): Promise<object[]>;
+  listen(numberOfMessages: number, autoCommit: boolean): Promise<Message[]>;
 
   /**
    * Get lowOffset and highOffset for given topic

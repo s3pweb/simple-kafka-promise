@@ -1,4 +1,4 @@
-import { KafkaConsumer as Consumer, WatermarkOffsets } from 'node-rdkafka';
+import { ClientMetrics, KafkaConsumer as Consumer, Message, Metadata, TopicPartitionOffset, WatermarkOffsets } from 'node-rdkafka';
 import { KafkaConsumerInterface } from './kafkaConsumerInterface';
 
 export class KafkaConsumer implements KafkaConsumerInterface {
@@ -25,7 +25,7 @@ export class KafkaConsumer implements KafkaConsumerInterface {
     });
   }
 
-  connect(topics): Promise<object> {
+  connect(topics): Promise<Metadata> {
     // Bus is ready and message(s) can be consumed
     this.consumer.on('ready', () => {
       // Get consume timeout from config (or 5 sec)
@@ -47,7 +47,7 @@ export class KafkaConsumer implements KafkaConsumerInterface {
     });
   }
 
-  disconnect(): Promise<object> {
+  disconnect(): Promise<ClientMetrics> {
     return new Promise((resolve, reject) => {
       this.consumer.disconnect((err, metrics) => {
         if (err) {
@@ -65,7 +65,7 @@ export class KafkaConsumer implements KafkaConsumerInterface {
     this.consumer.subscribe(topics);
   }
 
-  commit(): Promise<any> {
+  commit(): Promise<TopicPartitionOffset[]> {
     return new Promise((resolve, reject) => {
       this.consumer.commit();
       this.consumer.committed(undefined, 5000, (err, topicPartitions) => {
@@ -78,7 +78,7 @@ export class KafkaConsumer implements KafkaConsumerInterface {
     });
   }
 
-  listen(numberOfMessages: number, autoCommit: boolean): Promise<object[]> {
+  listen(numberOfMessages: number, autoCommit: boolean): Promise<Message[]> {
     return new Promise((resolve, reject) => {
       this.consumer.consume(numberOfMessages, (err, messages) => {
         if (err) {
