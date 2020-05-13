@@ -1,3 +1,5 @@
+import { WatermarkOffsets } from 'node-rdkafka';
+
 export interface KafkaConsumerInterface {
 
   /**
@@ -19,14 +21,23 @@ export interface KafkaConsumerInterface {
   subscribe(topics: string[]);
 
   /**
+   * Commit current client offsets
    * @return node-rdkafka topicPartitions
    */
   commit(): Promise<any>;
 
   /**
+   * Listen to a number of messages
    * @param numberOfMessages
    * @param autoCommit
    * @return Consumed messages
    */
   listen(numberOfMessages: number, autoCommit: boolean): Promise<object[]>;
+
+  /**
+   * Get lowOffset and highOffset for given topic
+   * @param topic
+   * @return Topic's offsets
+   */
+  getOffsets(topic: string): Promise<WatermarkOffsets>;
 }

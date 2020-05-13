@@ -1,4 +1,4 @@
-import { KafkaConsumer as Consumer } from 'node-rdkafka';
+import { KafkaConsumer as Consumer, WatermarkOffsets } from 'node-rdkafka';
 import { KafkaConsumerInterface } from './kafkaConsumerInterface';
 
 export class KafkaConsumer implements KafkaConsumerInterface {
@@ -95,6 +95,18 @@ export class KafkaConsumer implements KafkaConsumerInterface {
           } else {
             resolve(messages);
           }
+        }
+      });
+    });
+  }
+
+  getOffsets(topic: string): Promise<WatermarkOffsets> {
+    return new Promise((resolve, reject) => {
+      this.consumer.queryWatermarkOffsets(topic, 0, 5000, (err, offsets) => {
+        if (offsets) {
+          resolve(offsets);
+        } else {
+          reject(err);
         }
       });
     });
