@@ -5,14 +5,12 @@ and consumer wrapped with promise to allow the use of `async / await` with minim
 
 This library is fully written in TypeScript.
 
-## Latest release [2.1.0](https://github.com/s3pweb/simple-kafka-promise/compare/v2.0.0...v2.1.0) (2020-04-29)
+## Latest release [2.2.0](https://github.com/s3pweb/simple-kafka-promise/compare/v2.1.0...v2.2.0) (2020-05-13)
 
 ### Features
 
-* **dependencies:** removed unused @types/config package ([0db5ca3](https://github.com/s3pweb/simple-kafka-promise/commit/0db5ca33a9499746a47573d50038250a3ac7515d))
-* **dependencies:** update node-rdkafka to 2.8.1 ([e42a454](https://github.com/s3pweb/simple-kafka-promise/commit/e42a4543e80f6f599587fac248a7e628e8f80676))
-* **release:** add standard-version for autonomous releases ([31814cd](https://github.com/s3pweb/simple-kafka-promise/commit/31814cdcbee219f9c84b0b1c6236dd762b5c7ca4))
-* **workflows:** added github workflow to publish to npm ([6701055](https://github.com/s3pweb/simple-kafka-promise/commit/67010558228e9c09869d12e9e580c8c2b79b9104))
+* **consumer:** add get offsets to consumer ([15582f7](https://github.com/s3pweb/simple-kafka-promise/commit/15582f7e629e7e95f915fe0102723dbe69dafacf))
+* **consumer:** add librdkafka types to consumer's functions ([94ed43d](https://github.com/s3pweb/simple-kafka-promise/commit/94ed43dc634ca5d6645ac2ad428d3c5e7ce67470))
 
 ## Breaking changes from 1.x.x
 - Producer and consumer now are classes and have a constructor
