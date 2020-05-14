@@ -37,7 +37,8 @@ export interface KafkaConsumerInterface {
   /**
    * Get lowOffset and highOffset for given topic
    * @param topic
+   * @param partition
    * @return Topic's offsets
    */
-  getOffsets(topic: string): Promise<WatermarkOffsets>;
+  getOffsets(topic: string, partition: number): Promise<WatermarkOffsets>;
 }

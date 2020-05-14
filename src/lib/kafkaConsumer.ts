@@ -100,9 +100,9 @@ export class KafkaConsumer implements KafkaConsumerInterface {
     });
   }
 
-  getOffsets(topic: string): Promise<WatermarkOffsets> {
+  getOffsets(topic: string, partition: number): Promise<WatermarkOffsets> {
     return new Promise((resolve, reject) => {
-      this.consumer.queryWatermarkOffsets(topic, 0, 5000, (err, offsets) => {
+      this.consumer.queryWatermarkOffsets(topic, partition, 5000, (err, offsets) => {
         if (offsets) {
           resolve(offsets);
         } else {

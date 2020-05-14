@@ -34,7 +34,7 @@ export class KafkaConsumerMock implements KafkaConsumerInterface {
     });
   }
 
-  getOffsets(topic: string): Promise<WatermarkOffsets> {
+  getOffsets(topic: string, partition: number): Promise<WatermarkOffsets> {
     return new Promise((resolve) => {
       resolve({highOffset: 100, lowOffset: 0});
     });
