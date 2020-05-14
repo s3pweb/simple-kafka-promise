@@ -5,12 +5,11 @@ and consumer wrapped with promise to allow the use of `async / await` with minim
 
 This library is fully written in TypeScript.
 
-## Latest release [2.2.0](https://github.com/s3pweb/simple-kafka-promise/compare/v2.1.0...v2.2.0) (2020-05-13)
+## Latest release [2.2.1](https://github.com/s3pweb/simple-kafka-promise/compare/v2.2.0...v2.2.1) (2020-05-14)
 
-### Features
+### Bug Fixes
 
-* **consumer:** add get offsets to consumer ([15582f7](https://github.com/s3pweb/simple-kafka-promise/commit/15582f7e629e7e95f915fe0102723dbe69dafacf))
-* **consumer:** add librdkafka types to consumer's functions ([94ed43d](https://github.com/s3pweb/simple-kafka-promise/commit/94ed43dc634ca5d6645ac2ad428d3c5e7ce67470))
+* **consumer:** add partition parameter to get offsets function ([7ed0c77](https://github.com/s3pweb/simple-kafka-promise/commit/7ed0c77101c322b7fa068b4b2959d5e35db60f8b))
 
 ## Breaking changes from 1.x.x
 - Producer and consumer now are classes and have a constructor
