@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/s3pweb/simple-kafka-promise/compare/v2.2.0...v2.2.1) (2020-05-14)
+
+
+### Bug Fixes
+
+* **consumer:** add partition parameter to get offsets function ([7ed0c77](https://github.com/s3pweb/simple-kafka-promise/commit/7ed0c77101c322b7fa068b4b2959d5e35db60f8b))
+
 ## [2.2.0](https://github.com/s3pweb/simple-kafka-promise/compare/v2.1.0...v2.2.0) (2020-05-13)
 
 
