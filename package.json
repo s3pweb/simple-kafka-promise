@@ -25,7 +25,7 @@
     "node-rdkafka": "2.8.1"
   },
   "devDependencies": {
-    "@types/node": "^14.0.1",
+    "@types/node": "^14.0.23",
     "standard-version": "^8.0.0",
     "tslint": "^6.1.2",
     "typescript": "^3.9.2"
