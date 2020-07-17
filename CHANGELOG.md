@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/s3pweb/simple-kafka-promise/compare/v2.2.1...v2.3.0) (2020-07-17)
+
+
+### Features
+
+* **deps:** update node-rdkafka to 2.9.0 ([46c2c4a](https://github.com/s3pweb/simple-kafka-promise/commit/46c2c4a27e1f1b9e4b62a043a0452eda242d8efa))
+
+
+### Other
+
+* **deps-dev:** update @types/node to 14.0.23 ([3024921](https://github.com/s3pweb/simple-kafka-promise/commit/3024921abda6c0df47f76de2c7c0b237e4d1ee8c))
+* **deps-dev:** update standard-version to 8.0.2 ([593d421](https://github.com/s3pweb/simple-kafka-promise/commit/593d42121458f5839cca65d9683f5f44dc9a66eb))
+* **deps-dev:** update typescript to 3.9.7 ([8803f57](https://github.com/s3pweb/simple-kafka-promise/commit/8803f578039bcee1610865fcacec7499e4ac562b))
+
 ### [2.2.1](https://github.com/s3pweb/simple-kafka-promise/compare/v2.2.0...v2.2.1) (2020-05-14)
 
 
