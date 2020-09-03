@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-0](https://github.com/s3pweb/simple-kafka-promise/compare/v2.3.0...v3.0.0-0) (2020-09-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* **rdkafka:** consumer's functions types are changed back to "any"
+
+### Bug Fixes
+
+* **rdkafka:** revert node-rdkafka to 2.7.4 ([83f0390](https://github.com/s3pweb/simple-kafka-promise/commit/83f039030ecb7300d8cbd63f148943d6c4287424))
+
 ## [2.3.0](https://github.com/s3pweb/simple-kafka-promise/compare/v2.2.1...v2.3.0) (2020-07-17)
 
 
