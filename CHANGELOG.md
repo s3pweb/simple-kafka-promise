@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-1](https://github.com/s3pweb/simple-kafka-promise/compare/v3.0.0-0...v3.0.0-1) (2020-09-03)
+
+
+### Features
+
+* **producer:** add "send messages and await report" producer ([7f041c3](https://github.com/s3pweb/simple-kafka-promise/commit/7f041c3f752b5785cf75bee14352407e2efc11fa))
+
 ## [3.0.0-0](https://github.com/s3pweb/simple-kafka-promise/compare/v2.3.0...v3.0.0-0) (2020-09-03)
 
 
