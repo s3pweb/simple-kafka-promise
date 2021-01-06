@@ -1,16 +1,18 @@
-import { KafkaProducerInterface } from '../lib/kafkaProducerInterface';
+import {KafkaProducerInterface} from '../lib/kafkaProducerInterface';
+import {ClientMetrics, Metadata} from 'node-rdkafka';
 
 export class KafkaProducerMock implements KafkaProducerInterface {
   constructor(config: object, topicPrefix?: string) {
+    // -- Empty
   }
 
-  connect(): Promise<object | null> {
+  connect(): Promise<Metadata> {
     return new Promise((resolve) => {
       resolve();
     });
   }
 
-  disconnect(): Promise<object> {
+  disconnect(): Promise<ClientMetrics> {
     return new Promise((resolve) => {
       resolve();
     });

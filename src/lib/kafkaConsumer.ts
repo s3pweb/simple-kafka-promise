@@ -1,5 +1,5 @@
-import { ClientMetrics, KafkaConsumer as Consumer, Message, Metadata, TopicPartitionOffset, WatermarkOffsets } from 'node-rdkafka';
-import { KafkaConsumerInterface } from './kafkaConsumerInterface';
+import {ClientMetrics, KafkaConsumer as Consumer, Message, Metadata, TopicPartitionOffset, WatermarkOffsets} from 'node-rdkafka';
+import {KafkaConsumerInterface} from './kafkaConsumerInterface';
 
 export class KafkaConsumer implements KafkaConsumerInterface {
   private readonly consumer: Consumer;

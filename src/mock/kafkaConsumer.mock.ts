@@ -1,5 +1,5 @@
-import { ClientMetrics, Message, Metadata, TopicPartitionOffset, WatermarkOffsets } from 'node-rdkafka';
-import { KafkaConsumerInterface } from '../lib/kafkaConsumerInterface';
+import {ClientMetrics, Message, Metadata, TopicPartitionOffset, WatermarkOffsets} from 'node-rdkafka';
+import {KafkaConsumerInterface} from '../lib/kafkaConsumerInterface';
 
 export class KafkaConsumerMock implements KafkaConsumerInterface {
   constructor(config: object, timeoutMs?: number) {

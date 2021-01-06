@@ -1,5 +1,5 @@
-import { HighLevelProducer } from 'node-rdkafka';
-import { KafkaProducerInterface } from './kafkaProducerInterface';
+import {ClientMetrics, HighLevelProducer, Metadata} from 'node-rdkafka';
+import {KafkaProducerInterface} from './kafkaProducerInterface';
 
 export class KafkaProducer implements KafkaProducerInterface {
   private connected: boolean;
@@ -26,7 +26,7 @@ export class KafkaProducer implements KafkaProducerInterface {
     this.producer = new HighLevelProducer(producerConfig, {});
   }
 
-  connect(): Promise<object | null> {
+  connect(): Promise<Metadata> {
     return new Promise((resolve, reject) => {
       if (this.producer && this.connected === true) {
         // Do nothing if we are already connected
@@ -51,7 +51,7 @@ export class KafkaProducer implements KafkaProducerInterface {
     });
   }
 
-  disconnect(): Promise<object> {
+  disconnect(): Promise<ClientMetrics> {
     return new Promise((resolve, reject) => {
       this.producer.disconnect(((err, data) => {
         this.connected = false;

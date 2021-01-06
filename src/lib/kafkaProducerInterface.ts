@@ -1,3 +1,5 @@
+import {ClientMetrics, Metadata} from 'node-rdkafka';
+
 export interface KafkaProducerInterface {
 
   /**
@@ -5,14 +7,14 @@ export interface KafkaProducerInterface {
    *
    * @return Broker's metadata
    */
-  connect(): Promise<object | null>;
+  connect(): Promise<Metadata>;
 
   /**
    * Disconnect the producer from Kafka.
    *
    * @return The producer metrics.
    */
-  disconnect(): Promise<object>;
+  disconnect(): Promise<ClientMetrics>;
 
   /**
    * Send a message to Kafka and await ack.
