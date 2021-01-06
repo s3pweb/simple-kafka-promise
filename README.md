@@ -1,9 +1,13 @@
+![npm (scoped)](https://img.shields.io/npm/v/@s3pweb/simple-kafka-promise)
+
 # Simple kafka promise
 
 This library is based on [node-rdkafka](https://github.com/Blizzard/node-rdkafka) and aim to provide a simple producer 
 and consumer wrapped with promise to allow the use of `async / await` with minimal configuration and overhead.
 
 This library is fully written in TypeScript.
+
+Use s3pweb/alpine-kafka docker image with node-rdkafka included to shorten build time ![Docker Image Version (latest semver)](https://img.shields.io/docker/v/s3pweb/alpine-kafka?sort=semver) (version tag is the version of node-rdkafka).
 
 ## Latest release 
 
