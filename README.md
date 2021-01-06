@@ -7,17 +7,11 @@ This library is fully written in TypeScript.
 
 ## Latest release 
 
-## [3.1.0](https://github.com/s3pweb/simple-kafka-promise/compare/v3.0.0...v3.1.0) (2021-01-06)
+## [3.2.0](https://github.com/s3pweb/simple-kafka-promise/compare/v3.1.0...v3.2.0) (2021-01-06)
 
 ### Features
 
-* **consumer:** add commitOffset and commitMessage functions ([20127a8](https://github.com/s3pweb/simple-kafka-promise/commit/20127a86aed22898d9905ccfed394fd92df11d66))
-
-### Other
-
-* **deps-dev:** update @types/node to 12.19.12 ([87f1c02](https://github.com/s3pweb/simple-kafka-promise/commit/87f1c023a72cd09665dfed1ca335cacb53a58cf0))
-* **deps-dev:** update standard-version to 9.1.0 ([254a14c](https://github.com/s3pweb/simple-kafka-promise/commit/254a14cd7de2aae6e4f595df846a1c777b83d214))
-* **deps-dev:** update typescript to 4.1.3 ([8ae1650](https://github.com/s3pweb/simple-kafka-promise/commit/8ae1650363b01c0e06ae320455fce95766b812ab))
+* **deps:** update node-rdkafka to 2.10.0 ([297789a](https://github.com/s3pweb/simple-kafka-promise/commit/297789a91005e8ddf54f9ac5c387556b01f3a8a1))
 
 ## Breaking changes from 2.x.x
 - 2 different producers are available
