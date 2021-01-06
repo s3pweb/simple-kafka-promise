@@ -1,4 +1,4 @@
-![npm (scoped)](https://img.shields.io/npm/v/@s3pweb/simple-kafka-promise)
+[![npm (scoped)](https://img.shields.io/npm/v/@s3pweb/simple-kafka-promise)](https://www.npmjs.com/package/@s3pweb/simple-kafka-promise)
 
 # Simple kafka promise
 
@@ -7,7 +7,9 @@ and consumer wrapped with promise to allow the use of `async / await` with minim
 
 This library is fully written in TypeScript.
 
-Use s3pweb/alpine-kafka docker image with node-rdkafka included to shorten build time ![Docker Image Version (latest semver)](https://img.shields.io/docker/v/s3pweb/alpine-kafka?sort=semver) (version tag is the version of node-rdkafka).
+Use s3pweb/alpine-kafka docker image with node-rdkafka included to shorten build time
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/s3pweb/alpine-kafka?sort=semver)](https://hub.docker.com/repository/docker/s3pweb/alpine-kafka)
+(version tag is the version of node-rdkafka).
 
 ## Latest release 
 
