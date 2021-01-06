@@ -32,7 +32,7 @@ export class KafkaNProducer {
     return new Promise((resolve, reject) => {
 
       if (this.producer && this.connected === true) {
-        resolve();
+        resolve(null);
       } else {
         this.producer.connect(
           null,
@@ -57,7 +57,7 @@ export class KafkaNProducer {
       this.producer.once('disconnected', arg => {
         this.connected = false;
         setTimeout(() => {
-          resolve();
+          resolve(null);
         }, 2000);
       });
     });
@@ -103,7 +103,7 @@ export class KafkaNProducer {
 
             clearInterval(tt);
 
-            resolve();
+            resolve(null);
           }
         };
 

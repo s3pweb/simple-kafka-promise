@@ -8,13 +8,13 @@ export class KafkaProducerMock implements KafkaProducerInterface {
 
   connect(): Promise<Metadata> {
     return new Promise((resolve) => {
-      resolve();
+      resolve(null);
     });
   }
 
   disconnect(): Promise<ClientMetrics> {
     return new Promise((resolve) => {
-      resolve();
+      resolve(null);
     });
   }
 

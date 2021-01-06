@@ -30,7 +30,7 @@ export class KafkaProducer implements KafkaProducerInterface {
     return new Promise((resolve, reject) => {
       if (this.producer && this.connected === true) {
         // Do nothing if we are already connected
-        resolve();
+        resolve(null);
       } else {
         // Fix for https://github.com/Blizzard/node-rdkafka/issues/600
         this.producer.setValueSerializer((v) => v);

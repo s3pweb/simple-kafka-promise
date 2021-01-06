@@ -8,13 +8,13 @@ export class KafkaConsumerMock implements KafkaConsumerInterface {
 
   connect(topics): Promise<Metadata> {
     return new Promise((resolve) => {
-      resolve();
+      resolve(null);
     });
   }
 
   disconnect(): Promise<ClientMetrics> {
     return new Promise((resolve) => {
-      resolve();
+      resolve(null);
     });
   }
 
@@ -24,7 +24,7 @@ export class KafkaConsumerMock implements KafkaConsumerInterface {
 
   commit(): Promise<TopicPartitionOffset[]> {
     return new Promise((resolve) => {
-      resolve();
+      resolve(null);
     });
   }
 
