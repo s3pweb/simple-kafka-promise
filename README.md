@@ -7,18 +7,19 @@ This library is fully written in TypeScript.
 
 ## Latest release 
 
-## [2.3.0](https://github.com/s3pweb/simple-kafka-promise/compare/v2.2.1...v2.3.0) (2020-07-17)
+## [3.0.0](https://github.com/s3pweb/simple-kafka-promise/compare/v2.3.0...v3.0.0) (2021-01-06)
 
 ### Features
 
-* **deps:** update node-rdkafka to 2.9.0 ([46c2c4a](https://github.com/s3pweb/simple-kafka-promise/commit/46c2c4a27e1f1b9e4b62a043a0452eda242d8efa))
+* **producer:** add "send messages and await report" producer ([7f041c3](https://github.com/s3pweb/simple-kafka-promise/commit/7f041c3f752b5785cf75bee14352407e2efc11fa))
 
-### Other
+### Bug Fixes
 
-* **deps-dev:** update @types/node to 14.0.23 ([3024921](https://github.com/s3pweb/simple-kafka-promise/commit/3024921abda6c0df47f76de2c7c0b237e4d1ee8c))
-* **deps-dev:** update standard-version to 8.0.2 ([593d421](https://github.com/s3pweb/simple-kafka-promise/commit/593d42121458f5839cca65d9683f5f44dc9a66eb))
-* **deps-dev:** update typescript to 3.9.7 ([8803f57](https://github.com/s3pweb/simple-kafka-promise/commit/8803f578039bcee1610865fcacec7499e4ac562b))
+* **rdkafka:** revert node-rdkafka to 2.7.4 ([83f0390](https://github.com/s3pweb/simple-kafka-promise/commit/83f039030ecb7300d8cbd63f148943d6c4287424))
+* **rdkafka:** bump node-rdkafka back to 2.9.0 ([7b04ec4](https://github.com/s3pweb/simple-kafka-promise/commit/7b04ec432c311b03f39e1c39ec31247e45fe4112))
 
+## Breaking changes from 2.x.x
+- 2 different producers are available
 
 ## Breaking changes from 1.x.x
 - Producer and consumer now are classes and have a constructor
