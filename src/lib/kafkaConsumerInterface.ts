@@ -27,6 +27,18 @@ export interface KafkaConsumerInterface {
   commit(): Promise<TopicPartitionOffset[]>;
 
   /**
+   * Commit given offset(s)
+   * @param topicPartition a single or an array of TopicPartitionOffset(s)
+   */
+  commitOffset(topicPartition: TopicPartitionOffset | TopicPartitionOffset[] | null): Promise<TopicPartitionOffset[]>;
+
+  /**
+   * Commit given message (set topic offset at topic + 1)
+   * @param msg
+   */
+  commitMessage(msg: TopicPartitionOffset): Promise<TopicPartitionOffset[]>;
+
+  /**
    * Listen to a number of messages
    * @param numberOfMessages
    * @param autoCommit

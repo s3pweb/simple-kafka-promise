@@ -66,8 +66,29 @@ export class KafkaConsumer implements KafkaConsumerInterface {
   }
 
   commit(): Promise<TopicPartitionOffset[]> {
+    return this.commitOffset(null);
+  }
+
+  commitOffset(topicPartition: TopicPartitionOffset | TopicPartitionOffset[] | null): Promise<TopicPartitionOffset[]> {
     return new Promise((resolve, reject) => {
-      this.consumer.commit();
+      if (topicPartition) {
+        this.consumer.commit(topicPartition);
+      } else {
+        this.consumer.commit();
+      }
+      this.consumer.committed(undefined, 5000, (err, topicPartitions) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(topicPartitions);
+        }
+      });
+    });
+  }
+
+  commitMessage(msg: TopicPartitionOffset): Promise<TopicPartitionOffset[]> {
+    return new Promise((resolve, reject) => {
+      this.consumer.commitMessage(msg);
       this.consumer.committed(undefined, 5000, (err, topicPartitions) => {
         if (err) {
           reject(err);

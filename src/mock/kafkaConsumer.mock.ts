@@ -28,6 +28,14 @@ export class KafkaConsumerMock implements KafkaConsumerInterface {
     });
   }
 
+  commitOffset(topicPartition: TopicPartitionOffset | TopicPartitionOffset[] | null): Promise<TopicPartitionOffset[]> {
+    return Promise.resolve([]);
+  }
+
+  commitMessage(msg: TopicPartitionOffset): Promise<TopicPartitionOffset[]> {
+    return Promise.resolve([]);
+  }
+
   listen(numberOfMessages: number, autoCommit: boolean): Promise<Message[]> {
     return new Promise((resolve) => {
       resolve([]);
