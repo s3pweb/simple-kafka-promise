@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/s3pweb/simple-kafka-promise/compare/v3.2.0...v3.3.0) (2021-01-15)
+
+
+### Features
+
+* **deps:** update node-rdkafka to 2.10.1 ([861ff6c](https://github.com/s3pweb/simple-kafka-promise/commit/861ff6c35f3f652eb5b7d3aef11825003ebe8dad))
+
 ## [3.2.0](https://github.com/s3pweb/simple-kafka-promise/compare/v3.1.0...v3.2.0) (2021-01-06)
 
 
