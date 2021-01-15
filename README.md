@@ -13,11 +13,11 @@ Use s3pweb/alpine-kafka docker image with node-rdkafka included to shorten build
 
 ## Latest release 
 
-## [3.2.0](https://github.com/s3pweb/simple-kafka-promise/compare/v3.1.0...v3.2.0) (2021-01-06)
+## [3.3.0](https://github.com/s3pweb/simple-kafka-promise/compare/v3.2.0...v3.3.0) (2021-01-15)
 
 ### Features
 
-* **deps:** update node-rdkafka to 2.10.0 ([297789a](https://github.com/s3pweb/simple-kafka-promise/commit/297789a91005e8ddf54f9ac5c387556b01f3a8a1))
+* **deps:** update node-rdkafka to 2.10.1 ([861ff6c](https://github.com/s3pweb/simple-kafka-promise/commit/861ff6c35f3f652eb5b7d3aef11825003ebe8dad))
 
 ## Breaking changes from 2.x.x
 - 2 different producers are available
