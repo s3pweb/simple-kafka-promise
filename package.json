@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/s3pweb/simple-kafka-promise#readme",
   "dependencies": {
-    "node-rdkafka": "^2.10.0"
+    "node-rdkafka": "2.10.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
