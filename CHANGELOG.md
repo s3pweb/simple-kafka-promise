@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/s3pweb/simple-kafka-promise/compare/v3.3.0...v4.0.0) (2021-04-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **producer:** By default node-rdkafka will set request.required.acks at -1. You can override it by setting "request.required.acks" or "acks" in the config object.
+
+### Features
+
+* **producer:** removes request.required.acks from producer's configuration ([438b767](https://github.com/s3pweb/simple-kafka-promise/commit/438b7678c020af96ab6400d2e8488d79ad87295f))
+
 ## [3.3.0](https://github.com/s3pweb/simple-kafka-promise/compare/v3.2.0...v3.3.0) (2021-01-15)
 
 
