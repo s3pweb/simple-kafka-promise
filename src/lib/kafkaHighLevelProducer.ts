@@ -18,7 +18,6 @@ export class KafkaProducer implements KafkaProducerInterface {
       ...config,
       ...{
         'socket.keepalive.enable': true,
-        'request.required.acks': 1, // wait for leader ack
         'dr_cb': true,
       },
     };
