@@ -77,6 +77,23 @@ To use with typescript, just change the import to
 import { KafkaConsumer } from '@s3pweb/simple-kafka-promise';
 ```
 
+### SSL
+
+To connect with SSL, use:
+```typescript
+  const consumer = new KafkaConsumer({
+    'metadata.broker.list': [
+      'broker1:9093',
+      'broker2:9093',
+      'broker3:9093'
+    ],
+    'group.id': 'test-consumer.group',
+    'security.protocol': 'ssl',
+    'enable.ssl.certificate.verification': true,
+    'ssl.ca.location': '/path/to/the/CA/certificate.crt'
+  }, 1000)
+```
+
 ## Create a producer instance
 
 ```js
