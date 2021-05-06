@@ -91,7 +91,27 @@ To connect with SSL, use:
     'security.protocol': 'ssl',
     'enable.ssl.certificate.verification': true,
     'ssl.ca.location': '/path/to/the/CA/certificate.crt'
-  }, 1000)
+  })
+```
+
+### SASL
+
+To connect with SASL, use:
+```typescript
+  const consumer = new KafkaConsumer({
+    'metadata.broker.list': [
+      'broker1:9094',
+      'broker2:9094',
+      'broker3:9094'
+    ],
+    'group.id': 'test-sasl.group',
+    'security.protocol': 'sasl_ssl',
+    'sasl.username': 'username',
+    'sasl.password': 'password',
+    'sasl.mechanisms': 'SCRAM-SHA-256',
+    'enable.ssl.certificate.verification': true,
+    'ssl.ca.location': '/path/to/the/CA/certificate.crt'
+  })
 ```
 
 ## Create a producer instance
