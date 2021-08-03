@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/s3pweb/simple-kafka-promise/compare/v4.0.0...v4.1.0) (2021-08-03)
+
+
+### Features
+
+* **producer:** add getMetadata function to producers ([1f32c29](https://github.com/s3pweb/simple-kafka-promise/commit/1f32c2990da889c9da8f0ee8cfcb7db8503345a0))
+
 ## [4.0.0](https://github.com/s3pweb/simple-kafka-promise/compare/v3.3.0...v4.0.0) (2021-04-23)
 
 
