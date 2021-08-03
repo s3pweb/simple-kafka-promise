@@ -86,4 +86,20 @@ export class KafkaProducer implements KafkaProducerInterface {
         });
     });
   }
+
+  getMetadata(topic: string, timeout = 5000): Promise<Metadata> {
+    // Get all topics or only the one in parameter
+    const allTopics = !topic;
+    return new Promise((resolve, reject) => {
+      this.producer.getMetadata(
+        {topic, timeout, allTopics},
+        (err, metadata) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(metadata);
+          }
+        });
+    });
+  }
 }

@@ -27,4 +27,12 @@ export interface KafkaProducerInterface {
    * @return Message's offset
    */
   sendMessage(topic: string, message: object, partition: number, key: any): Promise<number>;
+
+  /**
+   * Get metadata for a given topic.
+   *
+   * @param topic Topic name, if topic name is null all topics will be shown.
+   * @param timeout Timeout in milliseconds.
+   */
+  getMetadata(topic: string, timeout?: number): Promise<Metadata>;
 }

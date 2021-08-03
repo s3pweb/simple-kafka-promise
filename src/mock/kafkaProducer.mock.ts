@@ -23,4 +23,8 @@ export class KafkaProducerMock implements KafkaProducerInterface {
       resolve(0);
     });
   }
+
+  getMetadata(topic?: string, timeout?: number): Promise<Metadata> {
+    return Promise.resolve(undefined);
+  }
 }

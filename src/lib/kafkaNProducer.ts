@@ -1,4 +1,4 @@
-import {Producer} from 'node-rdkafka';
+import {ClientMetrics, Metadata, Producer} from 'node-rdkafka';
 
 export class KafkaNProducer {
 
@@ -27,7 +27,7 @@ export class KafkaNProducer {
     this.producer = new Producer(producerConfig, {});
   }
 
-  connect() {
+  connect(): Promise<Metadata> {
     return new Promise((resolve, reject) => {
 
       if (this.producer && this.connected === true) {
@@ -48,7 +48,7 @@ export class KafkaNProducer {
     });
   }
 
-  disconnect() {
+  disconnect(): Promise<ClientMetrics> {
     return new Promise((resolve, reject) => {
 
       this.producer.disconnect();
@@ -62,7 +62,7 @@ export class KafkaNProducer {
     });
   }
 
-  sendMessage(topic, message, cpt, partition, key) {
+  sendMessage(topic, message, cpt, partition, key): void {
     // Create full topic
     const fullTopic = this.prefix + topic;
 
@@ -76,7 +76,23 @@ export class KafkaNProducer {
     );
   }
 
-  sendMessagesAndWaitReport(topic: string, messages: any[], partition: number, key: string) {
+  getMetadata(topic: string, timeout = 5000): Promise<Metadata> {
+    // Get all topics or only the one in parameter
+    const allTopics = !topic;
+    return new Promise((resolve, reject) => {
+      this.producer.getMetadata(
+        {topic, timeout, allTopics},
+        (err, metadata) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(metadata);
+          }
+        });
+    });
+  }
+
+  sendMessagesAndWaitReport(topic: string, messages: any[], partition: number, key: string): Promise<void> {
     return new Promise((resolve, reject) => {
       let deliveryReportListener;
       let errorListener;
