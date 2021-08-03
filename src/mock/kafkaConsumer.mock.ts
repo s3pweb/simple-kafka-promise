@@ -7,15 +7,11 @@ export class KafkaConsumerMock implements KafkaConsumerInterface {
   }
 
   connect(topics): Promise<Metadata> {
-    return new Promise((resolve) => {
-      resolve(null);
-    });
+    return Promise.resolve(null);
   }
 
   disconnect(): Promise<ClientMetrics> {
-    return new Promise((resolve) => {
-      resolve(null);
-    });
+    return Promise.resolve(null);
   }
 
   subscribe(topics: string[]) {
@@ -23,9 +19,7 @@ export class KafkaConsumerMock implements KafkaConsumerInterface {
   }
 
   commit(): Promise<TopicPartitionOffset[]> {
-    return new Promise((resolve) => {
-      resolve(null);
-    });
+    return Promise.resolve(null);
   }
 
   commitOffset(topicPartition: TopicPartitionOffset | TopicPartitionOffset[] | null): Promise<TopicPartitionOffset[]> {
@@ -37,14 +31,10 @@ export class KafkaConsumerMock implements KafkaConsumerInterface {
   }
 
   listen(numberOfMessages: number, autoCommit: boolean): Promise<Message[]> {
-    return new Promise((resolve) => {
-      resolve([]);
-    });
+    return Promise.resolve([]);
   }
 
   getOffsets(topic: string, partition: number): Promise<WatermarkOffsets> {
-    return new Promise((resolve) => {
-      resolve({highOffset: 100, lowOffset: 0});
-    });
+    return Promise.resolve({highOffset: 100, lowOffset: 0});
   }
 }

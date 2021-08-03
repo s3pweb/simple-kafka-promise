@@ -7,21 +7,15 @@ export class KafkaProducerMock implements KafkaProducerInterface {
   }
 
   connect(): Promise<Metadata> {
-    return new Promise((resolve) => {
-      resolve(null);
-    });
+    return Promise.resolve(null);
   }
 
   disconnect(): Promise<ClientMetrics> {
-    return new Promise((resolve) => {
-      resolve(null);
-    });
+    return Promise.resolve(null);
   }
 
   sendMessage(topic: string, message: object, partition: number, key: any): Promise<number> {
-    return new Promise((resolve) => {
-      resolve(0);
-    });
+    return Promise.resolve(0);
   }
 
   getMetadata(topic?: string, timeout?: number): Promise<Metadata> {
