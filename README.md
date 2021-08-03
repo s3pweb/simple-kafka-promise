@@ -13,23 +13,19 @@ Use s3pweb/alpine-kafka docker image with node-rdkafka included to shorten build
 
 ## Latest release 
 
-## [4.0.0](https://github.com/s3pweb/simple-kafka-promise/compare/v3.3.0...v4.0.0) (2021-04-23)
-
-### ⚠ BREAKING CHANGES
-
-* **producer:** By default node-rdkafka will set request.required.acks at -1. You can override it by setting "request.required.acks" or "acks" in the config object.
+## [4.1.0](https://github.com/s3pweb/simple-kafka-promise/compare/v4.0.0...v4.1.0) (2021-08-03)
 
 ### Features
 
-* **producer:** removes request.required.acks from producer's configuration ([438b767](https://github.com/s3pweb/simple-kafka-promise/commit/438b7678c020af96ab6400d2e8488d79ad87295f))
+* **producer:** add getMetadata function to producers ([1f32c29](https://github.com/s3pweb/simple-kafka-promise/commit/1f32c2990da889c9da8f0ee8cfcb7db8503345a0))
 
-## Breaking change from 3.x.x
+## Breaking change in v4 from 3.x.x
 - **producer:** By default node-rdkafka will set request.required.acks at -1. You can override it by setting "request.required.acks" or "acks" in the config object.
 
-## Breaking change from 2.x.x
+## Breaking change in v3 from 2.x.x
 - 2 different producers are available
 
-## Breaking changes from 1.x.x
+## Breaking changes in v2 from 1.x.x
 - Producer and consumer now are classes and have a constructor
 - No more direct need for node-config and a logger
 
