@@ -13,11 +13,21 @@ Use s3pweb/alpine-kafka docker image with node-rdkafka included to shorten build
 
 ## Latest release 
 
-## [4.1.0](https://github.com/s3pweb/simple-kafka-promise/compare/v4.0.0...v4.1.0) (2021-08-03)
+## [4.2.0](https://github.com/s3pweb/simple-kafka-promise/compare/v4.1.0...v4.2.0) (2021-09-07)
 
 ### Features
 
-* **producer:** add getMetadata function to producers ([1f32c29](https://github.com/s3pweb/simple-kafka-promise/commit/1f32c2990da889c9da8f0ee8cfcb7db8503345a0))
+* **deps:** update to node-rdkafka@2.11.0 ([6d74586](https://github.com/s3pweb/simple-kafka-promise/commit/6d74586c424ae10be67a3796657a99e0b3ad2649))
+
+### Other
+
+* **deps-dev:** add eslint and prettier to replace tslint ([25d0f20](https://github.com/s3pweb/simple-kafka-promise/commit/25d0f20780de6b860191a96e3802c59d0b2d9228))
+* **deps-dev:** remove tslint ([926c425](https://github.com/s3pweb/simple-kafka-promise/commit/926c425b4374c4ceca7194aa7ad77a7624b741b6))
+* **deps-dev:** update to @commitlint/cli@13.1.0 and @commitlint/config-conventional@13.1.0 ([db42bcf](https://github.com/s3pweb/simple-kafka-promise/commit/db42bcf1834cc8b260c3efda552d6d7c1f4a6d01))
+* **deps-dev:** update to @types/node@16.7.13 and node 16.8.0 ([adf9cff](https://github.com/s3pweb/simple-kafka-promise/commit/adf9cff069771a6e159d9862c352810fece8267b))
+* **deps-dev:** update to husky@7.0.0 ([4b21dbe](https://github.com/s3pweb/simple-kafka-promise/commit/4b21dbe16b7ff0ad45808485832d72b55334aa7b))
+* **deps-dev:** update to standard-version@9.3.1 ([0ed60a4](https://github.com/s3pweb/simple-kafka-promise/commit/0ed60a43b1b7a5fa945a3bfa7959646cd295f472))
+* **deps-dev:** update to typescript@4.4.2 ([dee4ac7](https://github.com/s3pweb/simple-kafka-promise/commit/dee4ac78a9b6a194bbcbff18912a1df765b846a0))
 
 ## Breaking change in v4 from 3.x.x
 - **producer:** By default node-rdkafka will set request.required.acks at -1. You can override it by setting "request.required.acks" or "acks" in the config object.
