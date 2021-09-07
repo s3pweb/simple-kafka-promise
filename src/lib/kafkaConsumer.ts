@@ -1,5 +1,12 @@
-import {ClientMetrics, KafkaConsumer as Consumer, Message, Metadata, TopicPartitionOffset, WatermarkOffsets} from 'node-rdkafka';
-import {KafkaConsumerInterface} from './kafkaConsumerInterface';
+import {
+  ClientMetrics,
+  KafkaConsumer as Consumer,
+  Message,
+  Metadata,
+  TopicPartitionOffset,
+  WatermarkOffsets,
+} from 'node-rdkafka';
+import { KafkaConsumerInterface } from './kafkaConsumerInterface';
 
 export class KafkaConsumer implements KafkaConsumerInterface {
   private readonly consumer: Consumer;
@@ -9,7 +16,7 @@ export class KafkaConsumer implements KafkaConsumerInterface {
    * @param config Node-rdkafka configuration object. Minimum: `{ "metadata.broker.list": "0.0.0.0:9094", "group.id": "test.group" }`
    * @param timeoutMs Consume timeout in ms
    */
-  constructor(config: object, timeoutMs?: number) {
+  constructor(config: any, timeoutMs?: number) {
     this.consumeTimeout = timeoutMs ? timeoutMs : 1000;
 
     const consumerConfig = {
@@ -34,16 +41,13 @@ export class KafkaConsumer implements KafkaConsumerInterface {
     });
     // Connect consumer to kafka
     return new Promise((resolve, reject) => {
-      this.consumer.connect(
-        null,
-        (err, metadata) => {
-          if (err) {
-            return reject(err);
-          } else {
-            return resolve(metadata);
-          }
-        },
-      );
+      this.consumer.connect(null, (err, metadata) => {
+        if (err) {
+          return reject(err);
+        } else {
+          return resolve(metadata);
+        }
+      });
     });
   }
 
@@ -69,7 +73,9 @@ export class KafkaConsumer implements KafkaConsumerInterface {
     return this.commitOffset(null);
   }
 
-  commitOffset(topicPartition: TopicPartitionOffset | TopicPartitionOffset[] | null): Promise<TopicPartitionOffset[]> {
+  commitOffset(
+    topicPartition: TopicPartitionOffset | TopicPartitionOffset[] | null,
+  ): Promise<TopicPartitionOffset[]> {
     return new Promise((resolve, reject) => {
       if (topicPartition) {
         this.consumer.commit(topicPartition);
@@ -123,13 +129,18 @@ export class KafkaConsumer implements KafkaConsumerInterface {
 
   getOffsets(topic: string, partition: number): Promise<WatermarkOffsets> {
     return new Promise((resolve, reject) => {
-      this.consumer.queryWatermarkOffsets(topic, partition, 5000, (err, offsets) => {
-        if (offsets) {
-          resolve(offsets);
-        } else {
-          reject(err);
-        }
-      });
+      this.consumer.queryWatermarkOffsets(
+        topic,
+        partition,
+        5000,
+        (err, offsets) => {
+          if (offsets) {
+            resolve(offsets);
+          } else {
+            reject(err);
+          }
+        },
+      );
     });
   }
 }

@@ -1,8 +1,14 @@
-import {ClientMetrics, Message, Metadata, TopicPartitionOffset, WatermarkOffsets} from 'node-rdkafka';
-import {KafkaConsumerInterface} from '../lib/kafkaConsumerInterface';
+import {
+  ClientMetrics,
+  Message,
+  Metadata,
+  TopicPartitionOffset,
+  WatermarkOffsets,
+} from 'node-rdkafka';
+import { KafkaConsumerInterface } from '../lib/kafkaConsumerInterface';
 
 export class KafkaConsumerMock implements KafkaConsumerInterface {
-  constructor(config: object, timeoutMs?: number) {
+  constructor(config: any, timeoutMs?: number) {
     // -- Empty
   }
 
@@ -22,7 +28,9 @@ export class KafkaConsumerMock implements KafkaConsumerInterface {
     return Promise.resolve(null);
   }
 
-  commitOffset(topicPartition: TopicPartitionOffset | TopicPartitionOffset[] | null): Promise<TopicPartitionOffset[]> {
+  commitOffset(
+    topicPartition: TopicPartitionOffset | TopicPartitionOffset[] | null,
+  ): Promise<TopicPartitionOffset[]> {
     return Promise.resolve([]);
   }
 
@@ -35,6 +43,6 @@ export class KafkaConsumerMock implements KafkaConsumerInterface {
   }
 
   getOffsets(topic: string, partition: number): Promise<WatermarkOffsets> {
-    return Promise.resolve({highOffset: 100, lowOffset: 0});
+    return Promise.resolve({ highOffset: 100, lowOffset: 0 });
   }
 }

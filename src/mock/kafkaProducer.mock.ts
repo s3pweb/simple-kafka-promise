@@ -1,8 +1,8 @@
-import {KafkaProducerInterface} from '../lib/kafkaProducerInterface';
-import {ClientMetrics, Metadata} from 'node-rdkafka';
+import { KafkaProducerInterface } from '../lib/kafkaProducerInterface';
+import { ClientMetrics, Metadata } from 'node-rdkafka';
 
 export class KafkaProducerMock implements KafkaProducerInterface {
-  constructor(config: object, topicPrefix?: string) {
+  constructor(config: any, topicPrefix?: string) {
     // -- Empty
   }
 
@@ -14,7 +14,12 @@ export class KafkaProducerMock implements KafkaProducerInterface {
     return Promise.resolve(null);
   }
 
-  sendMessage(topic: string, message: object, partition: number, key: any): Promise<number> {
+  sendMessage(
+    topic: string,
+    message: any,
+    partition: number,
+    key: any,
+  ): Promise<number> {
     return Promise.resolve(0);
   }
 

@@ -1,7 +1,12 @@
-import {ClientMetrics, Message, Metadata, TopicPartitionOffset, WatermarkOffsets} from 'node-rdkafka';
+import {
+  ClientMetrics,
+  Message,
+  Metadata,
+  TopicPartitionOffset,
+  WatermarkOffsets,
+} from 'node-rdkafka';
 
 export interface KafkaConsumerInterface {
-
   /**
    * Connect consumer to kafka and subscribe to given topics
    * @param topics Array of topics
@@ -30,7 +35,9 @@ export interface KafkaConsumerInterface {
    * Commit given offset(s)
    * @param topicPartition a single or an array of TopicPartitionOffset(s)
    */
-  commitOffset(topicPartition: TopicPartitionOffset | TopicPartitionOffset[] | null): Promise<TopicPartitionOffset[]>;
+  commitOffset(
+    topicPartition: TopicPartitionOffset | TopicPartitionOffset[] | null,
+  ): Promise<TopicPartitionOffset[]>;
 
   /**
    * Commit given message (set topic offset at topic + 1)

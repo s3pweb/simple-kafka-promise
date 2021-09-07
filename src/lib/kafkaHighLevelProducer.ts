@@ -1,5 +1,5 @@
-import {ClientMetrics, HighLevelProducer, Metadata} from 'node-rdkafka';
-import {KafkaProducerInterface} from './kafkaProducerInterface';
+import { ClientMetrics, HighLevelProducer, Metadata } from 'node-rdkafka';
+import { KafkaProducerInterface } from './kafkaProducerInterface';
 
 export class KafkaProducer implements KafkaProducerInterface {
   private connected: boolean;
@@ -10,7 +10,7 @@ export class KafkaProducer implements KafkaProducerInterface {
    * @param config Node-rdkafka configuration object. Minimum: `{ "metadata.broker.list": "0.0.0.0:9094" }`
    * @param topicPrefix Prefix to add before each topic name
    */
-  constructor(config: object, topicPrefix?: string) {
+  constructor(config: any, topicPrefix?: string) {
     this.connected = false;
     this.prefix = topicPrefix ? topicPrefix : '';
 
@@ -18,7 +18,7 @@ export class KafkaProducer implements KafkaProducerInterface {
       ...config,
       ...{
         'socket.keepalive.enable': true,
-        'dr_cb': true,
+        dr_cb: true,
       },
     };
 
@@ -35,24 +35,21 @@ export class KafkaProducer implements KafkaProducerInterface {
         this.producer.setValueSerializer((v) => v);
         this.producer.setKeySerializer((v) => v);
 
-        this.producer.connect(
-          null,
-          (err, metadata) => {
-            if (err) {
-              reject(err);
-            } else {
-              this.connected = true;
-              resolve(metadata);
-            }
-          },
-        );
+        this.producer.connect(null, (err, metadata) => {
+          if (err) {
+            reject(err);
+          } else {
+            this.connected = true;
+            resolve(metadata);
+          }
+        });
       }
     });
   }
 
   disconnect(): Promise<ClientMetrics> {
     return new Promise((resolve, reject) => {
-      this.producer.disconnect(((err, data) => {
+      this.producer.disconnect((err, data) => {
         this.connected = false;
 
         if (err) {
@@ -61,11 +58,16 @@ export class KafkaProducer implements KafkaProducerInterface {
         } else {
           resolve(data);
         }
-      }));
+      });
     });
   }
 
-  sendMessage(topic: string, message: object, partition: number, key: any): Promise<number> {
+  sendMessage(
+    topic: string,
+    message: any,
+    partition: number,
+    key: any,
+  ): Promise<number> {
     return new Promise((resolve, reject) => {
       // Create full topic
       const fullTopic = this.prefix + topic;
@@ -83,7 +85,8 @@ export class KafkaProducer implements KafkaProducerInterface {
           } else {
             resolve(offset);
           }
-        });
+        },
+      );
     });
   }
 
@@ -92,14 +95,15 @@ export class KafkaProducer implements KafkaProducerInterface {
     const allTopics = !topic;
     return new Promise((resolve, reject) => {
       this.producer.getMetadata(
-        {topic, timeout, allTopics},
+        { topic, timeout, allTopics },
         (err, metadata) => {
           if (err) {
             reject(err);
           } else {
             resolve(metadata);
           }
-        });
+        },
+      );
     });
   }
 }

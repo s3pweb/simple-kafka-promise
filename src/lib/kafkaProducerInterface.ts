@@ -1,7 +1,6 @@
-import {ClientMetrics, Metadata} from 'node-rdkafka';
+import { ClientMetrics, Metadata } from 'node-rdkafka';
 
 export interface KafkaProducerInterface {
-
   /**
    * Connect the producer to kafka, will return broker's metadata or nothing if already connected.
    *
@@ -26,7 +25,12 @@ export interface KafkaProducerInterface {
    * @param key Kafka key to be sent along the message.
    * @return Message's offset
    */
-  sendMessage(topic: string, message: object, partition: number, key: any): Promise<number>;
+  sendMessage(
+    topic: string,
+    message: any,
+    partition: number,
+    key: any,
+  ): Promise<number>;
 
   /**
    * Get metadata for a given topic.
