@@ -13,11 +13,11 @@ Use s3pweb/alpine-kafka docker image with node-rdkafka included to shorten build
 
 ## Latest release 
 
-## [4.3.0](https://github.com/s3pweb/simple-kafka-promise/compare/v4.2.0...v4.3.0) (2022-01-04)
+## [4.4.0](https://github.com/s3pweb/simple-kafka-promise/compare/v4.3.0...v4.4.0) (2022-10-19)
 
 ### Features
 
-* **deps:** update to node-rdkafka@2.12.0 ([be23d03](https://github.com/s3pweb/simple-kafka-promise/commit/be23d033505ac589eb783d90bdddc73678f584f5))
+* **deps:** update to node-rdkafka@2.14.0 ([3e1405a](https://github.com/s3pweb/simple-kafka-promise/commit/3e1405a025f8af62268fc92d6be1f016034eeb2a))
 
 ## Breaking change in v4 from 3.x.x
 - **producer:** By default node-rdkafka will set request.required.acks at -1. You can override it by setting "request.required.acks" or "acks" in the config object.
