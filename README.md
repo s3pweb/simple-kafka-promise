@@ -11,14 +11,6 @@ Use s3pweb/alpine-kafka docker image with node-rdkafka included to shorten build
 [![Docker Image Version (latest semver)](https://img.shields.io/docker/v/s3pweb/alpine-kafka?sort=semver)](https://hub.docker.com/repository/docker/s3pweb/alpine-kafka)
 (version tag is the version of node-rdkafka).
 
-## Latest release 
-
-## [4.4.0](https://github.com/s3pweb/simple-kafka-promise/compare/v4.3.0...v4.4.0) (2022-10-19)
-
-### Features
-
-* **deps:** update to node-rdkafka@2.14.0 ([3e1405a](https://github.com/s3pweb/simple-kafka-promise/commit/3e1405a025f8af62268fc92d6be1f016034eeb2a))
-
 ## Breaking change in v4 from 3.x.x
 - **producer:** By default node-rdkafka will set request.required.acks at -1. You can override it by setting "request.required.acks" or "acks" in the config object.
 
@@ -139,7 +131,13 @@ To produce some messages take a look at `./examples/producer.js` and to consume 
 
 If you have docker, you can use `./examples/docker-compose.yaml` to start one `zookeeper` and one `kafka` stack on your machine. 
 This stack comes with `kafkamanager`  and `kafkadrop` for easy monitoring and debugging.
+
 ## Docker
 
 If you want to build a docker image based on alpine linux, you need to add some packages to the base image. 
 Go [here](https://github.com/Blizzard/node-rdkafka/blob/master/examples/docker-alpine.md) for more details.
+
+## New releases
+
+To create a new release, you only need to add your code (don't forget the mocks and the interfaces) and create a new tag.
+DO NOT push the code to NPM, create a version on Github or send a message for the new release. It will be done automatically by Github Actions.
