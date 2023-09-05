@@ -68,6 +68,16 @@ export class KafkaProducer implements KafkaProducerInterface {
     partition: number,
     key: any,
   ): Promise<number> {
+    message = Buffer.from(JSON.stringify(message));
+    return this.sendBufferMessage(topic, message, partition, key);
+  }
+
+  sendBufferMessage(
+    topic: string,
+    message: any,
+    partition: number,
+    key: any,
+  ): Promise<number> {
     return new Promise((resolve, reject) => {
       // Create full topic
       const fullTopic = this.prefix + topic;
@@ -76,7 +86,7 @@ export class KafkaProducer implements KafkaProducerInterface {
       this.producer.produce(
         fullTopic,
         partition,
-        Buffer.from(JSON.stringify(message)),
+        message,
         key,
         Date.now(),
         (err, offset) => {
