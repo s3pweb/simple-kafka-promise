@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.5.1](https://github.com/s3pweb/simple-kafka-promise/compare/v4.5.0...v4.5.1) (2023-09-05)
+
+
+### Other
+
+* **kafkaproducerinterface:** add new sendBufferMessage method ([068e331](https://github.com/s3pweb/simple-kafka-promise/commit/068e3313ad037aaeea7ad8eed90ce9b80033f398))
+* **kafkaproducermock:** add new sendBufferMessage method mock ([cb23fd6](https://github.com/s3pweb/simple-kafka-promise/commit/cb23fd62233088e65cd5eb267cd863defc76e570))
+
 ## [4.5.0](https://github.com/s3pweb/simple-kafka-promise/compare/v4.4.0...v4.5.0) (2023-09-05)
 
 
