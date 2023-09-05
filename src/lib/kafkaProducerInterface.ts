@@ -33,6 +33,23 @@ export interface KafkaProducerInterface {
   ): Promise<number>;
 
   /**
+   * Send a buffer message to Kafka and await ack.
+   *
+   * @param topic Topic to send message to.
+   * If `kafka.producer.topicsPrefix` exist in config, the full topic will be `kafka.producer.topicsPrefix + topic`
+   * @param message Message to be sent.
+   * @param partition Topic partition.
+   * @param key Kafka key to be sent along the message.
+   * @return Message's offset
+   */
+  sendBufferMessage(
+    topic: string,
+    message: any,
+    partition: number,
+    key: any,
+  ): Promise<number>;
+
+  /**
    * Get metadata for a given topic.
    *
    * @param topic Topic name, if topic name is null all topics will be shown.
