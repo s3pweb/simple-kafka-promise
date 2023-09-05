@@ -23,6 +23,15 @@ export class KafkaProducerMock implements KafkaProducerInterface {
     return Promise.resolve(0);
   }
 
+  sendBufferMessage(
+    topic: string,
+    message: any,
+    partition: number,
+    key: any,
+  ): Promise<number> {
+    return Promise.resolve(0);
+  }
+
   getMetadata(topic?: string, timeout?: number): Promise<Metadata> {
     return Promise.resolve(undefined);
   }
