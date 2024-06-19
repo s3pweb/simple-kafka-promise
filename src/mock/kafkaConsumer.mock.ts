@@ -1,10 +1,6 @@
-import {
-  ClientMetrics,
-  Message,
-  Metadata,
-  TopicPartitionOffset,
-  WatermarkOffsets,
-} from 'node-rdkafka';
+/* eslint @typescript-eslint/no-unused-vars: 0 */
+
+import { ClientMetrics, Message, Metadata, TopicPartitionOffset, WatermarkOffsets } from 'node-rdkafka';
 import { KafkaConsumerInterface } from '../lib/kafkaConsumerInterface';
 
 export class KafkaConsumerMock implements KafkaConsumerInterface {

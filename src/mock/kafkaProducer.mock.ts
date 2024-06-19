@@ -1,3 +1,5 @@
+/* eslint @typescript-eslint/no-unused-vars: 0 */
+
 import { KafkaProducerInterface } from '../lib/kafkaProducerInterface';
 import { ClientMetrics, Metadata } from 'node-rdkafka';
 
