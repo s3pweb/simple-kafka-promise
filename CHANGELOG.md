@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.5.2](https://github.com/s3pweb/simple-kafka-promise/compare/v4.5.1...v4.5.2) (2024-06-19)
+
+
+### Other
+
+* **deps:** update all dependencies ([3c1f0f6](https://github.com/s3pweb/simple-kafka-promise/commit/3c1f0f61cfb7becc358f2d477347b131d376dfd5))
+
 ### [4.5.1](https://github.com/s3pweb/simple-kafka-promise/compare/v4.5.0...v4.5.1) (2023-09-05)
 
 
