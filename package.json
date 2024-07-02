@@ -10,7 +10,7 @@
     "lint": "eslint --fix ./src",
     "test": "npm run lint && echo \"Error: no test specified\" && exit 1",
     "release": "standard-version",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
