@@ -1,5 +1,5 @@
 import {
-  ClientMetrics,
+  ClientMetrics, KafkaConsumer as Consumer,
   Message,
   Metadata,
   TopicPartitionOffset,
@@ -60,4 +60,9 @@ export interface KafkaConsumerInterface {
    * @return Topic's offsets
    */
   getOffsets(topic: string, partition: number): Promise<WatermarkOffsets>;
+
+  /**
+   * @return Consumer instance from node-rdkafka
+   */
+  getConsumer(): Consumer
 }

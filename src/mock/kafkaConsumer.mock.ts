@@ -1,6 +1,13 @@
 /* eslint @typescript-eslint/no-unused-vars: 0 */
 
-import { ClientMetrics, Message, Metadata, TopicPartitionOffset, WatermarkOffsets } from 'node-rdkafka';
+import {
+  ClientMetrics,
+  KafkaConsumer as Consumer,
+  Message,
+  Metadata,
+  TopicPartitionOffset,
+  WatermarkOffsets,
+} from 'node-rdkafka';
 import { KafkaConsumerInterface } from '../lib/kafkaConsumerInterface';
 
 export class KafkaConsumerMock implements KafkaConsumerInterface {
@@ -40,5 +47,9 @@ export class KafkaConsumerMock implements KafkaConsumerInterface {
 
   getOffsets(topic: string, partition: number): Promise<WatermarkOffsets> {
     return Promise.resolve({ highOffset: 100, lowOffset: 0 });
+  }
+
+  getConsumer(): Consumer {
+    return null;
   }
 }

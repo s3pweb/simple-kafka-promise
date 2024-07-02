@@ -143,4 +143,8 @@ export class KafkaConsumer implements KafkaConsumerInterface {
       );
     });
   }
+
+  getConsumer(): Consumer {
+    return this.consumer;
+  }
 }
