@@ -15,11 +15,8 @@ export class KafkaProducer implements KafkaProducerInterface {
     this.prefix = topicPrefix ? topicPrefix : '';
 
     const producerConfig = {
+      'socket.keepalive.enable': true,
       ...config,
-      ...{
-        'socket.keepalive.enable': true,
-        dr_cb: true,
-      },
     };
 
     this.producer = new HighLevelProducer(producerConfig, {});
