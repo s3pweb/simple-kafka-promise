@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.6.0](https://github.com/s3pweb/simple-kafka-promise/compare/v4.5.3...v4.6.0) (2024-07-02)
+
+
+### Features
+
+* **consumer:** expose node-rdkafka consumer ([dad8d37](https://github.com/s3pweb/simple-kafka-promise/commit/dad8d37d84182b1ae2ee3e85b9b8bb2766e437f6))
+
+
+### Other
+
+* **deps:** refresh package-lock.json ([a770046](https://github.com/s3pweb/simple-kafka-promise/commit/a77004649d99f1edd798bc46f929c8ef4b789f3d))
+
 ### [4.5.3](https://github.com/s3pweb/simple-kafka-promise/compare/v4.5.2...v4.5.3) (2024-06-19)
 
 
