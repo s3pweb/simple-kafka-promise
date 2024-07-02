@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/s3pweb/simple-kafka-promise/compare/v4.6.0...v5.0.0) (2024-07-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **producer:** stop overwriting given config and remove unused dr_cb
+* **consumer:** stop overwriting given config with arbitrary default values
+
+### Features
+
+* **consumer:** stop overwriting given config with arbitrary default values ([357f061](https://github.com/s3pweb/simple-kafka-promise/commit/357f061ab4e32d758db326231e54c59c31f4314e))
+* **producer:** stop overwriting given config and remove unused dr_cb ([246c3a2](https://github.com/s3pweb/simple-kafka-promise/commit/246c3a2bd748f67f3b249feca1274edbba5111d3))
+
 ## [4.6.0](https://github.com/s3pweb/simple-kafka-promise/compare/v4.5.3...v4.6.0) (2024-07-02)
 
 
