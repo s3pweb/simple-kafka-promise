@@ -20,11 +20,9 @@ export class KafkaConsumer implements KafkaConsumerInterface {
     this.consumeTimeout = timeoutMs ? timeoutMs : 1000;
 
     const consumerConfig = {
+      'enable.auto.commit': false,
+      'socket.keepalive.enable': true,
       ...config,
-      ...{
-        'enable.auto.commit': false,
-        'socket.keepalive.enable': true,
-      },
     };
 
     this.consumer = new Consumer(consumerConfig, {
