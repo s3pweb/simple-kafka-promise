@@ -1,4 +1,4 @@
-import { ClientMetrics, HighLevelProducer, Metadata } from 'node-rdkafka';
+import { ClientMetrics, HighLevelProducer, Metadata, NumberNullUndefined } from 'node-rdkafka';
 import { KafkaProducerInterface } from './kafkaProducerInterface';
 
 export class KafkaProducer implements KafkaProducerInterface {
@@ -62,8 +62,8 @@ export class KafkaProducer implements KafkaProducerInterface {
   sendMessage(
     topic: string,
     message: any,
-    partition: number,
-    key: any,
+    partition: NumberNullUndefined,
+    key?: any,
   ): Promise<number> {
     message = Buffer.from(JSON.stringify(message));
     return this.sendBufferMessage(topic, message, partition, key);
@@ -72,8 +72,8 @@ export class KafkaProducer implements KafkaProducerInterface {
   sendBufferMessage(
     topic: string,
     message: any,
-    partition: number,
-    key: any,
+    partition: NumberNullUndefined,
+    key?: any,
   ): Promise<number> {
     return new Promise((resolve, reject) => {
       // Create full topic

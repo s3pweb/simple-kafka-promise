@@ -1,5 +1,6 @@
 import {
-  ClientMetrics, KafkaConsumer as Consumer,
+  ClientMetrics,
+  KafkaConsumer as Consumer,
   Message,
   Metadata,
   TopicPartitionOffset,
@@ -64,5 +65,5 @@ export interface KafkaConsumerInterface {
   /**
    * @return Consumer instance from node-rdkafka
    */
-  getConsumer(): Consumer
+  getConsumer(): Consumer;
 }

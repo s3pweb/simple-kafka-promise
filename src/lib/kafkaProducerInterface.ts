@@ -1,4 +1,4 @@
-import { ClientMetrics, Metadata } from 'node-rdkafka';
+import { ClientMetrics, Metadata, NumberNullUndefined } from 'node-rdkafka';
 
 export interface KafkaProducerInterface {
   /**
@@ -28,8 +28,8 @@ export interface KafkaProducerInterface {
   sendMessage(
     topic: string,
     message: any,
-    partition: number,
-    key: any,
+    partition: NumberNullUndefined,
+    key?: any,
   ): Promise<number>;
 
   /**
@@ -45,8 +45,8 @@ export interface KafkaProducerInterface {
   sendBufferMessage(
     topic: string,
     message: any,
-    partition: number,
-    key: any,
+    partition: NumberNullUndefined,
+    key?: any,
   ): Promise<number>;
 
   /**
