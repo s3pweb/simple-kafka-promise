@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.1](https://github.com/s3pweb/simple-kafka-promise/compare/v5.0.0...v5.0.1) (2025-05-26)
+
+
+### Bug Fixes
+
+* **producer:** set partition type to NumberNullUndefined ([782190d](https://github.com/s3pweb/simple-kafka-promise/commit/782190d10124f75f8f4f3e0a16ec91cd22724032))
+
+
+### Other
+
+* **deps:** update node-rdkafka to v3.4.0 ([96e577c](https://github.com/s3pweb/simple-kafka-promise/commit/96e577c8c4b42d095c189030bf94b71c25bb5001))
+
 ## [5.0.0](https://github.com/s3pweb/simple-kafka-promise/compare/v4.6.0...v5.0.0) (2024-07-02)
 
 
