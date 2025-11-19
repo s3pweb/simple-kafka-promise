@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/s3pweb/simple-kafka-promise#readme",
   "dependencies": {
-    "node-rdkafka": "3.5.0"
+    "node-rdkafka": "3.6.0"
   },
   "devDependencies": {
     "@commitlint/cli": "19.8.1",
