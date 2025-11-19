@@ -1,8 +1,10 @@
 import {
   ClientMetrics,
+  ConsumerGlobalConfig,
   KafkaConsumer as Consumer,
   Message,
   Metadata,
+  SubscribeTopic,
   TopicPartitionOffset,
   WatermarkOffsets,
 } from 'node-rdkafka';
@@ -16,8 +18,8 @@ export class KafkaConsumer implements KafkaConsumerInterface {
    * @param config Node-rdkafka configuration object. Minimum: `{ "metadata.broker.list": "0.0.0.0:9094", "group.id": "test.group" }`
    * @param timeoutMs Consume timeout in ms
    */
-  constructor(config: any, timeoutMs?: number) {
-    this.consumeTimeout = timeoutMs ? timeoutMs : 1000;
+  constructor(config: ConsumerGlobalConfig, timeoutMs?: number) {
+    this.consumeTimeout = timeoutMs || 1000;
 
     const consumerConfig = {
       'enable.auto.commit': false,
@@ -30,7 +32,7 @@ export class KafkaConsumer implements KafkaConsumerInterface {
     });
   }
 
-  connect(topics): Promise<Metadata> {
+  connect(topics: SubscribeTopic[]): Promise<Metadata> {
     // Bus is ready and message(s) can be consumed
     this.consumer.on('ready', () => {
       // Get consume timeout from config (or 5 sec)
@@ -62,7 +64,7 @@ export class KafkaConsumer implements KafkaConsumerInterface {
     });
   }
 
-  subscribe(topics: string[]) {
+  subscribe(topics: SubscribeTopic[]) {
     this.consumer.unsubscribe();
     this.consumer.subscribe(topics);
   }
