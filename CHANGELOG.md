@@ -1,6 +1,15 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [5.0.2](https://github.com/s3pweb/simple-kafka-promise/compare/v5.0.1...v5.0.2) (2025-11-19)
+
+
+### Other
+
+* **consumer:** improve config type ([1a6bbbe](https://github.com/s3pweb/simple-kafka-promise/commit/1a6bbbef70678b3d6bdd0d8a1e617f715d8ae792))
+* **deps:** update node-rdkafka to v3.5.0 ([2be0aaa](https://github.com/s3pweb/simple-kafka-promise/commit/2be0aaa1cf58a3b6f1ea923595806d3a545fe5c5))
+* **deps:** use commit-and-tag-version to release ([acc3b7a](https://github.com/s3pweb/simple-kafka-promise/commit/acc3b7ad6714b4cb012982e99336da524f4a7619))
 
 ### [5.0.1](https://github.com/s3pweb/simple-kafka-promise/compare/v5.0.0...v5.0.1) (2025-05-26)
 
