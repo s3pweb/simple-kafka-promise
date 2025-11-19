@@ -9,16 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        cache: 'npm'
-    - run: npm ci
-    - run: |
-        LAST_TAG=`curl https://api.github.com/repos/s3pweb/simple-kafka-promise/tags | jq -r '.[0].name'`
-        npm install -g @s3pweb/release-message-creator
-        BODY=`create-github-message`
-        curl -f -X POST -H "Authorization: token ${{secrets.TOKEN}}" \
-          https://api.github.com/repos/${{github.repository}}/releases \
-          -d '{"tag_name":"'"${LAST_TAG}"'","name":"Version '"${LAST_TAG#v}"'","body":'"${BODY}"', "draft":false}'
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'npm'
+      - run: npm ci
+      - run: |
+          LAST_TAG=`curl https://api.github.com/repos/s3pweb/simple-kafka-promise/tags | jq -r '.[0].name'`
+          npm install -g @s3pweb/release-message-creator
+          BODY=`create-github-message`
+          curl -f -X POST -H "Authorization: token ${{secrets.TOKEN}}" \
+            https://api.github.com/repos/${{github.repository}}/releases \
+            -d '{"tag_name":"'"${LAST_TAG}"'","name":"Version '"${LAST_TAG#v}"'","body":'"${BODY}"', "draft":false}'
