@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [5.0.4](https://github.com/s3pweb/simple-kafka-promise/compare/v5.0.3...v5.0.4) (2025-11-20)
+
+
+### Other
+
+* add getFeatures function for debug ([0274315](https://github.com/s3pweb/simple-kafka-promise/commit/0274315fc6644325b5b30d873f9589850c7673c8))
+
 ## [5.0.3](https://github.com/s3pweb/simple-kafka-promise/compare/v5.0.2...v5.0.3) (2025-11-19)
 
 
