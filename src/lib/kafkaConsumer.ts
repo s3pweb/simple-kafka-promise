@@ -1,6 +1,7 @@
 import {
   ClientMetrics,
   ConsumerGlobalConfig,
+  features,
   KafkaConsumer as Consumer,
   Message,
   Metadata,
@@ -146,5 +147,9 @@ export class KafkaConsumer implements KafkaConsumerInterface {
 
   getConsumer(): Consumer {
     return this.consumer;
+  }
+
+  getFeatures(): string[] {
+    return features;
   }
 }

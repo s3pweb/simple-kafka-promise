@@ -1,4 +1,4 @@
-import { ClientMetrics, HighLevelProducer, Metadata, NumberNullUndefined } from 'node-rdkafka';
+import { ClientMetrics, features, HighLevelProducer, Metadata, NumberNullUndefined } from 'node-rdkafka';
 import { KafkaProducerInterface } from './kafkaProducerInterface';
 
 export class KafkaProducer implements KafkaProducerInterface {
@@ -112,5 +112,9 @@ export class KafkaProducer implements KafkaProducerInterface {
         },
       );
     });
+  }
+
+  getFeatures(): string[] {
+    return features;
   }
 }
