@@ -23,20 +23,20 @@
   },
   "homepage": "https://github.com/s3pweb/simple-kafka-promise#readme",
   "dependencies": {
-    "node-rdkafka": "3.6.0"
+    "node-rdkafka": "3.6.1"
   },
   "devDependencies": {
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
-    "@types/node": "22.19.1",
+    "@types/node": "22.19.17",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
-    "commit-and-tag-version": "12.6.0",
+    "commit-and-tag-version": "12.7.1",
     "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.2",
     "eslint-plugin-import": "2.32.0",
     "husky": "9.1.7",
-    "prettier": "3.6.2",
+    "prettier": "3.8.1",
     "typescript": "5.9.3"
   },
   "files": [
